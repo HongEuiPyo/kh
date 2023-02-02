@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+//NaN
+console.log( NaN )
+console.log( typeof(NaN) )
+
+console.log("---------")
+
+
+console.log( isNaN(123) )	//false
+
+console.log( isNaN("ABC") )	//true
+console.log( isNaN("123") )	//false
+
+console.log( isNaN("123ABC") )	//true	-> NaN기반은 아님
+
+console.log( parseInt("123ABC") )	//123 -> NaN기반은 아님
+//	-> isNaN()을 통해서 parseInt()가능한 지 파악할 수는 없다
+
+console.log("---------")
+
+var x = 333;
+
+if( !isNaN(x) ) {
+	//x변수가 숫자형식일 경우에만 실행
+}
+
+console.log("----------")
+
+//Infinity, 무한대
+console.log( 123/0 ) //Infinity
+console.log( -123/0 ) //-Infinity
+
+console.log("----------")
+
+//isFinite()함수
+//	인자값이 유효한 값인지 확인한다
+
+console.log( isFinite(123/0))	//false
+console.log( isFinite(654))	//true
+
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

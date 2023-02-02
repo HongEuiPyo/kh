@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%	request.setCharacterEncoding("UTF-8"); %>
+æ»≥Á«œººø‰, ${param.username }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

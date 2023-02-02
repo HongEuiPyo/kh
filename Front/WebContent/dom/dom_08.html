@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+window.onload = function() {
+	
+	//태그의 id는 window객체의 property로 등록된다
+	
+// 	console.log( window.test)
+// 	console.log( window.myForm )
+	
+	console.log( test)
+	console.log( myForm )
+	
+	//	-> document.getElementById("id") 를 대체할 수 있다
+	
+	//글자색 지정
+	test.style.color = "red"
+	
+	//배경색 지정
+	document.getElementById("test").style.backgroundColor = "tomato"
+
+	//------------------------------------------------------
+	
+	// <form>태그의 name은 document객체의 property로 등록된다
+	//	-> <form>태그 자체에 설정된 name이다, input의 name이 아님
+	
+	console.log( document.myFormName )
+	
+	//------------------------------------------------------
+	
+	// form태그의 자식 요소들의 name은 form객체의 property로 등록된다
+	
+	var f = myForm; //#myForm
+	
+	console.log( f.data1 ) //DOM객체
+	console.log( f.c ) //배열
+
+	console.log( f.c[0].checked ) //true
+	console.log( f.c[1].checked ) //true
+	
+	//체크박스 체크 해제하기
+	f.c[1].removeAttribute("checked")
+	
+	//체크박스 체크 설정하기
+// 	f.c[1].setAttribute("checked", "checked")
+	
+	if( f.c[0].checked && f.c[1].checked ) {
+		//체크 박스 둘 다 체크된 경우		
+	}else if (!f.c[0].checked || !f.c[1].checked ) {
+		//체크 박스 둘 중에 하나라도 체크가 안 된 경우
+		alert("이용약관&개인정보 수집 동의에 체크하세요!")
+	}
+	
+	//-----------------------------------------------------
+	
+	//비활성화 상태(disabled)
+	
+	console.log( f.b )
+	
+	console.log( f.b.disabled ) //true
+	
+	//속성의 값없이 속성의 존재 유무만으로 사용하는 속성
+	//	-> checked, disabled, selected, readonly, required
+	
+	//-----------------------------------------------------
+	
+	//요소의 현재 value속성값 가져오기
+	console.log( f.data2.value )
+	
+	//태그에 처음으로 정의되어있던 기본값value
+	console.log( f.data2.defaultValue )
+	
+	//-----------------------------------------------------
+	
+	//<select>태그의 선택된 항목의 value
+	console.log( f.s.value ) //two
+}	
+</script>
+
+</head>
+<body>
+
+<h1 id="test">테스트 폼</h1>
+<hr>
+
+<form action="#" method="get" id="myForm" name="myFormName">
+
+	<input type="text" name="data1" readonly="readonly" /><br>
+	<input type="text" name="data2" value="기본값" /><br>
+	
+	<input type="checkbox" name="c" value="c1" checked="checked" />이용약관<br>
+	<input type="checkbox" name="c" value="c2" checked="checked" />개인정보 수집 동의 <br><br>
+	
+	<input type="button" name="b" disabled="disabled" /><br><br>
+	
+	<select name="s">
+		<option value="one">1</option>
+		<option value="two" selected="selected">2</option>
+	</select>
+	
+</form>
+
+</body>
+</html>

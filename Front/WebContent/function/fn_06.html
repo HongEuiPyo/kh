@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+//전역 변수
+var result
+
+//덧셈 함수
+function add(n1, n2) {
+	result = n1 + n2;
+}
+
+//출력 함수
+function print() {
+	console.log( result )
+}
+
+add(100, 200)
+
+print();
+
+//---------------------------------------
+console.log("----------")
+
+//콜백 함수, Callback Function
+//	직접 호출해서 사용하지 않고 외부의 동작에 의해
+//	호출되도록 만들어진 함수
+
+function sum(n1, n2, callback) {
+	var res = n1 + n2;
+	
+	callback(res);
+}
+
+function display( data ) {
+	
+	console.log("결과값 :", data)
+} 
+
+sum(11, 22, display);
+
+//----------------------------------------
+
+//sum함수호출 - 익명함수를 이용한 전달
+sum( 777, 888, function(data)) {
+	
+	//body태그에 태그텍스트를 출력한다
+	//	-> 브라우저 화면에 결과가 보임
+	document.write("<h1>" + data + "</h1>")
+}
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+<button id="delcookie">쿠키 삭제</button>
+
+<script>
+
+	var date = new Date();
+
+// 쿠키 삭제 - 만기시간을 과거로 되돌리면.
+	function delCookie() {
+		date.setDate(date.getDate() - 1 );
+		
+		var setCookie = '';
+		
+		setCookie += 'CookieName=ABC;';
+		setCookie += 'Expires=' + date.toUTCString();
+		
+		document.cookie = setCookie;	//쿠키 설정, 생성
+	}
+	
+	document.getElementById('delcookie').addEventListener('click', function(){
+		delCookie();
+		alert('쿠키삭제됨');
+	});
+</script>
+
+
+</body>
+</html>

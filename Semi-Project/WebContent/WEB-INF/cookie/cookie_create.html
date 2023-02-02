@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>쿠키 생성</title>
+
+</head>
+<body>
+
+
+
+<script type="text/javascript">
+	/*
+		document.cookie = "Name= 값; Value= 값; Expires = 값"
+		날짜 추출 date.getDate(); - 현재 날짜 추출
+		날짜 지정 date.setDate(새로운 날짜); - 새로운 날짜 지정
+	*/
+	var date = new Date();
+	console.log(date);
+	console.log(date.getDate() + 7);
+	
+	date.setDate(date.getDate() + 7);
+	console.log(date);
+	
+	date.toUTCString();
+	
+	var setCookie = '';
+// 	setCookie = setCookie + 'CookieName=ABC;';
+	setCookie += setCookie + 'CookieName=ABC;';
+	setCookie += setCookie + 'Expires=' + date.toUTCString();
+	
+	document.cookie = setCookie;	//쿠키 설정, 생성
+	
+	console.log(document.cookie);	//쿠키 확인
+</script>
+
+</body>
+</html>

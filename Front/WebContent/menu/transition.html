@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+/* 메인메뉴 */
+ul.nav {
+	/* ul 태그의 기본 리스트스타일 없애기 */
+	list-style-type: none;
+	
+	/* 기본 여백 제서 */
+	padding: 0;
+	margin: 0;
+}
+
+/*-----------------------------------*/
+
+/* 메인 메뉴의 항목 */
+ul.nav > li {
+	/* 서브메뉴(absolute)의 위치 기준점 설정하기 */
+	position: relative;
+
+	/* 수평으로 일렬 배치하기 */ 
+	float: left;
+	
+	/* 배경색 지정하기 */
+	background: #777;
+	
+	/* 크기 변경하기 (배경색포함 변경) */
+/* 	padding: 20px 5px; */
+
+	/* 줄간격을 이용한 높이 조절 */
+	line-height: 40px;
+/* 	border: 1px solid #fff; */
+	border-right: 1px solid #fff; 
+	
+}
+
+/* 메인 메뉴의 항목 테스트 */
+ul.nav > li > a {
+	/*글자 색상 */
+	color: #fff;
+	
+	/* 글자 꾸밈선 제거(underline, 밑줄 제거) */
+	text-decoration: none;
+	
+	/* 글자 스타일 지정 */
+	font-size: 20px;	/* 크기 */
+	font-weight: bold;	/* 굻게 */
+	font-family: "돋움";	/* 글꼴 */
+	
+	/* 내부 여백 */
+	/*	-> a태그의 내부여백은 링크 클릭 가능한 영역 */
+	padding: 10px 15px;
+	
+	/* 외부 여백 */
+	/*	-> a태그의 외부여백은 링크 클릭 불가능한 영역 */
+	margin: 0 3px;
+	
+	transition: color 3s;
+}
+
+/* 메인 메뉴 항목 테스트에 마우스를 올렸을 때 */
+ul.nav > li > a:hover {
+	color: tomato;
+	
+} 
+
+
+/*---------------------------------------------------*/
+/* 서브 메뉴 */
+ul.nav > li > ul {
+	/*HTML 계층구조(레이아웃) 에서 빼내는 설정 */
+	/* -> 부모요소인 <li>태그의 컨텐츠 영역에서 빠져나옴 */
+	position: absolute;
+	
+	/* 요소 위치 지정 - 안 해도 됨 */
+	left: 10px;
+
+	/* ul 태그 기본 리스트스타일 제거하기 */
+	list-style-type: none;
+
+	/* ul태그의 기본 여백 제거 */
+	padding: 0;
+	margin: 0;
+	
+	/* 서브메뉴영역의 너비 */
+	width: 150px;
+}
+
+ul.nav > li > ul > li {
+	/* 배경색 지정 */
+	background: #999;
+	
+	/* 항목의 크기 키우기 */
+/* 	padding: 10px; */
+
+	/* 왼쪽 여백 - 들여쓰기 효과주기 */
+	padding-left: 10px;
+	
+	/* 평소에 화면에서 안 보이도록 설정하기 */
+	height: 0; /*컨텐츠영역 높이 제거 */	
+	font-size: 0;	/* 글자 크기 제거 */
+	line-height: 0; /* 줄간격 제거 */
+	
+	
+	
+}
+
+ul.nav > li:hover > ul > li {
+	
+	/* 메인메뉴 항목에 마우스 올릴 경우 다시 보이도록 설정 */
+	height: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	
+}
+
+ul.nav > li > ul > li > a {
+
+	/* 배경색 지정 */
+	background: #ccc;
+	
+	/* 글자색 지정 */
+	color: #333;
+	
+	/* 글자 꾸밈선 제거(underline) */
+	text-decoration: none;
+	
+	/* 부모요소 <li>항목만큼 영역을 차지하는 태그로 만들기 */
+	/*	-> <a>태그가 부모<li>태그로 가득 채워짐 */
+	display: block;
+	
+}
+
+ul.nav > li > ul > li > a:hover {
+	/* 글자색 변경 */
+	color: #c00;
+	
+	/* 배경색 변경 */
+	background: #0c0;
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+
+<h1>2Depth 메뉴</h1>
+<hr>
+
+<ul class="nav">
+	<li><a href="#">HOME</a></li>
+	
+	<li>
+		<a href="#">웹개발팀</a>
+		<ul>
+			<li><a href="#">웹디자이너</a>
+			<li><a href="#">웹퍼블리셔</a>
+			<li><a href="#">웹개발자</a>
+			<li><a href="#">웹엔지니어</a>
+		</ul>
+	</li>
+	
+	<li>
+		<a href="#">게시판</a>
+		<ul>
+			<li><a href="#">공지사항</a></li>
+			<li><a href="#">자유게시판</a></li>
+		</ul>
+	</li>
+	
+	<li><a href="#">문의하기</a></li>
+</ul>
+
+</body>
+</html>

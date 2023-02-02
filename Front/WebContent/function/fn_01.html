@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function func() {
+	//수행코드
+	console.log("함수입니다")
+}
+
+//JS함수 호출 코드
+func();
+func();
+func();
+
+console.log("---------")
+
+//변수 선언
+var func2;
+
+//이름없는 함수를 변수에 대입하여 변수이름을 함수이름으로 사용한다
+func2 = function () {
+	console.log("이것도 함수입니다")	
+}
+
+func2();
+func2();
+func2();
+
+console.log("---------")
+
+var func3 = func;
+var func4 = func2;
+
+func3();
+func4();
+
+console.log("---------")
+
+console.log( typeof(func))
+console.log( typeof(func2))
+console.log( typeof(func3))
+console.log( typeof(func4))
+
+console.log("---------")
+
+console.log( func )
+console.log( func2 )
+console.log( func3 )
+console.log( func4 )
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

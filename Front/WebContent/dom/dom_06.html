@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+window.onload = function() {
+	//h3태그요소들을 DOM객체로 반환하기 - 배열
+	var h3 = document.getElementsByTagName("h3")	
+	console.log(h3)
+	
+	h3[0].innerHTML = "HI"
+	h3[1].innerHTML = "Hello"
+	
+	h3[2].style.color = "red"
+	
+	//-------------------------------------------------------------
+	
+	//h1태그요소들 가져오기 - 배열
+	var h1 = document.getElementsByTagName("h1")
+	console.log( h1 )
+	
+	//적용되지 않는다
+	//	-> h1변수는 DOM객체의 배열이다
+	//	-> 배열에는 innerHTML프로퍼티를 적용할 수 없다	
+// 	h1.innerHTML = "AAHAHAHA"
+	
+	h1[0].innerHTML = "HOHOHOO"
+	
+	//-------------------------------------------------------------
+	
+	//h3배열의 0번째 DOM객체를 DOM트리에서 제거한다
+	h3[0].remove();
+	
+	//제거된 요소가 아닌 남은 요소들 중에서 0번째를 찾는다
+	h3[0].style.color = "blue"
+	
+	//** remove()로 제거된 객체는 다시 사용할 수 없게된다
+	var test = document.getElementById("test")
+	console.log( test ) //null
+	
+}
+
+
+
+</script>
+
+
+</head>
+<body>
+
+<h1>제목</h1>
+<hr>
+
+<h3 id="test">Javascript</h3>
+<h3>DOM</h3>
+<h3>getElementsByTagName</h3>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	//#myDiv의 첫번째 자식으로 <h1>태그를 생성하기
+	$("#myDiv").prepend(
+			$("<h1>").html("prepend") )
+	
+	//----------------------------------------------------
+	
+	//#myDiv의 자식 요소들 확인 - <h1>, <ul>
+	console.log( $("#myDiv").children())
+	
+	$("<li>").html("영").prependTo( $("#myDiv").children() )
+	
+	//----------------------------------------------------
+	
+	$("#third").after( $("<li>").html("형제노드 추가") )
+	
+	$("<li>").html("이전 형제").insertBefore( $("#third") )
+	
+	
+	
+})
+</script>
+</head>
+<body>
+
+<div id="myDiv">
+<ul>
+	<li>하나</li>
+	<li>둘</li>
+	<li id="third">셋</li>
+	<li>넷</li>
+	<li>다섯</li>
+</ul>
+</div>
+
+</body>
+</html>

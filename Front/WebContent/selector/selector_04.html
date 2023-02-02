@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type= "text/css">
+
+/* div태그의 자손 중에서 id가 myDiv인 요소들 선택 */
+div #myDiv {
+	/* 해당 요소 없음 */
+	background: red;
+}
+
+/* id가 myDiv인 div태그를 선택한다 */
+div#myDiv {
+	color: #777;
+}
+
+/* #myDic태그의 자손 중에서 ul태그들 선택 */
+#myDiv ul {
+	border: 1px solid #808;
+}
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+<h1>복합선택자</h1>
+<h3>자식, 자손 선택자</h3>
+<hr>
+
+<ul>
+</ul>
+
+<div id="myDiv">
+<ul>
+	<li>1</li>
+	<ul>
+		<li>2</li>
+		<ul>
+			<li>2-1</li>
+			<li>2-2</li>
+			</ul>
+	</ul>
+</ul>
+
+</div>
+
+</body>
+</html>

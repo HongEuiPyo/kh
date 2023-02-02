@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//#btnOk 버튼 생성
+	//	-> DOM트리에는 아직 추가되지 않음
+	var $btnOk = $("<button id='btnOk'>확인</button>");
+	
+	//#btnAlert의 클릭 이벤트 처리
+	$("#btnAlert").on("click", function(){
+		console.log("HIHI")
+		
+		//div태그의 첫번째 자식으로 #btnOk 추가
+		$btnOk.prependTo( $("div"))
+		
+
+	})
+	
+	//------------------------------------------------
+	
+	//#btnOk에 클릭 이벤트 처리코드 등록
+	//	-> 이벤트 처리코드로 등록되지 않음 ( 이벤트 처리 안됨 ) 
+	$("#btnOk").on("click", function() {
+	alert("btnOk CLICKED")
+	})
+	
+	//div태그에 click이벤트리스너를 등록한다
+	//실제 이벤트의 동작은 "div #btnOk"에서 반응한다
+	$("div").on("click", "#btnOk", function() {
+		alert("Hello")
+		
+		//#btnAlert의 이벤트 제거
+		$("#btnAlert").off("click")
+	})
+	
+	//-------------------------------------------------
+	
+	$("#btnCancel").on("click",function(){
+		console.log("cancel button")
+		
+		//#btnOk의 이벤트가 제거되지 않음
+		$("#btnOk").off("click")
+		
+		//"div #btnOk"에 동적으로 걸린 이벤트 제거
+		$("div").off("click", "#btnOk")
+	})
+	
+})
+
+
+
+</script>
+
+
+<div>
+	<button id="btnAlert">알림</button>
+	<button id="btnCancel">확인 이벤트 제거</button>
+
+</div>
+
+
+</body>
+</html>

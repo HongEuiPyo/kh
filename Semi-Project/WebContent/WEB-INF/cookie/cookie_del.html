@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+
+	function delCookie(name) {
+		document.addEventListener('DOMContentLoaded' , function(){
+			
+		
+		var date = new Date();
+		
+		date.setDate(date.getDate() - 1 );
+		
+		var setCookie = '';
+		
+		setCookie += name + '=Main;';
+		setCookie += 'Expires=' + date.toUTCString();
+		
+		document.cookie = setCookie;	//쿠키 설정, 생성
+		
+		}
+		
+		document.querySelector('#delcookie').addEventListener('click', function(){
+			delCookie('ABCcorp');
+		});
+		
+	});
+</script>
+
+</head>
+<body>
+	<button id="delcookie">delete cookie</button>
+</body>
+</html>

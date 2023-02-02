@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+function showAlert() {
+	
+	console.log("--- alert ---")
+	
+	var res = alert("메시지만 출력되는 알림창")
+	
+	console.log( res ) //undefined, 반환값 없음
+}
+
+function showConfirm() {
+	console.log("--- confirm ---")
+	
+	var res = confirm("찬성이면 확인, 반대면 취소를 누르세요")
+	console.log( res )
+	
+	//반환타입: boolean
+	//	true - 확인버튼 클릭, 엔터키 입력
+	//	false - 취소버튼 클릭, esc키 입력
+	
+	if( res ) { // 확인버튼
+		document.querySelectorAll("li")[1].style.color = "skyblue"
+	} else { //취소 버튼
+		document.querySelectorAll("li")[1].style.color = "tomato"
+	}	
+}
+function showPrompt() {
+	console.log("--- prompt ---")
+	
+	var res = prompt("상세한 이유를 작성하세요")
+	console.log( res )
+	
+	//반환타입: String
+	//	텍스트필드에 입력한 내용 - 확인버튼 클릭, 엔터키 입력
+	//	null - 취소버튼 클릭, esc 입력
+	
+	//	**아무것도 작성하지 않고 확인버튼 누르면 ""빈 문자열 반환된다
+	
+	if(res == null ) {
+		console.log("취소 선택")
+	} else if( res == "") {
+		console.log("입력값 없이 확인 선택")
+	} else {
+		console.log("입력값 >>", res)
+	}
+}
+
+
+</script>
+
+</head>
+<body>
+
+<h1>기본 대화상자</h1>
+<h3>Interaction, 상호작용 박스</h3>
+<h3>alert, confirm, prompt</h3>
+<hr>
+
+
+<ol>
+<li>
+	확인 버튼과 메세지를 출력하는
+	<input type="button" onclick="showAlert()" value="alert" />
+</li>
+<li>
+	확인, 취소 버튼과 메시지를 출력하는
+	<input type="button" onclick="showConfirm()" value="confirm" />
+</li>
+<li>
+	확인, 취소 버튼과 메세지, 입력 테스트 필드를 출력하는
+	<input type="button" onclick="showPrompt()" value="prompt" />
+</li>
+</ol>
+
+
+</body>
+</html>

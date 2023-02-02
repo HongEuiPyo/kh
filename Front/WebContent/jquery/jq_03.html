@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- jQuery 2.2.4 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+// jQuery 코어
+// $()
+// jQuery()
+
+//----------------------------------------------------------
+
+	//jQuery로 #p1 노드 얻기
+	var jQueryP1 = $("#p1")
+	
+	//JS로 #p1 노드 얻기
+	var jsP1 = document.getElementById("p1")
+// 	var jsP1 = p1
+	
+	console.log("--- jQuery ---")
+	console.log( jQueryP1 )
+	
+	console.log("--- JS ---")
+	console.log( jsP1 )
+	
+	//순수JS DOM객체를 이용한 스타일(CSS) 지정
+	jsP1.style.color = "red"
+	
+	//에러, jQuery DOM 객체에 JS방식으로 코드 적용 못 함
+// 	jQueryP1.style.background = "#ccc"
+
+	//jQuery DOM객체를 이용한 스타일(CSS) 지정
+	jQueryP1.css("border", "1px solid #ccc")
+	
+	//------------------------------------------
+	
+	//jqDOM -> jsDOM 변환 후 스타일 지정
+	//	-> jQueryP1[0]을 통해 JS DOM으로 변환함
+	jQueryP1[0].style.background = "blue"
+
+	//------------------------------------------
+	
+	console.log("--- $('p') ---")
+	console.log( $("p") )
+	
+	//선택 요소가 여러 개 여도 모두 CSS가 적용된다
+	$("p").css("font-style", "italic")
+	
+	//------------------------------------------
+	
+	//JS DOM 객체
+	var p3 = document.getElementById("p3")
+	
+	var $p3 = $("#p3")
+	
+	console.log("--- JS DOM ---")
+	console.log( p3 )
+	
+	console.log("--- jQuery DOM ---")
+	console.log( $p3 )
+	
+	//-------------------------------------------
+	
+	//JS DOM(p3) -> jQuery DOM
+	var $p3DOM = $( p3 )
+	
+	//jQuery DOM($p3DOM) -> JS DOM
+	var p3Dom = $p3DOM[0]
+})
+</script>
+
+</head>
+<body>
+
+<div>
+	<p id="p1">하이<p>
+	<p class="p2">Hello</p>
+	<p id="p3">Welcome</p>
+</div>
+
+
+</body>
+</html>

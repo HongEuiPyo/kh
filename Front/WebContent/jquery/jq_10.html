@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function{
+	var $div = $("div")
+	
+	console.log( $div.css("width") )
+	
+	$div.css("width", "200px")
+	
+	//------------------------------------------------------------
+	
+	var info = $div.css([ "width", "height", "border-color"] )
+	console.log(info)
+	
+	console.log("--- info.width ---")
+	console.log( info.width )
+	
+	info.width = "800px"
+	info.height = "500px"
+	
+	$div.css( info )
+	
+	
+	
+	
+})
+
+</script>
+
+<body>
+
+<div style="width: 300px !important; height: 200px; bordr: 1px solid red;">
+	<p>하나</p>
+	<p>둘</p>
+	<p>셋</p>
+</div>
+
+</body>
+</html>

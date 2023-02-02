@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+* {
+/* 	font-size: 20px; */
+
+	/* 모든 태그에 기본 설정을 넣을 때 사용한다 */
+	/* 브라우저의 기본 CSS를 없앨 때에도 사용한다 */
+	
+	/* 크기 속성값을 0으로 넣으면 속성 설정이 없어진다 */
+	padding: 0; /* 내부여백 없애기 */
+	margin: 0; 	/* 외부여백 없애기 */
+}
+
+/* p 태그 선택자 */
+p {
+	/* 내부 여백 */
+	padding: 10px;
+	
+	/* 외부 여백 */
+	margin: 5px;
+	
+	
+	/* 배경 지정 : background */
+	/* -> 내부영역에 대한 배경 지정 */
+	/* -> margin 영역에는 들어가지 않는다 */
+/* 	background: yellow; */
+/* 	background-color: tomato; */
+
+/* 	background: url(https://i.imgur.com/09XtYSI.gif); */
+	background-image: url(https://i.imgur.com/09XtYSI.gif);
+	
+	/* 글자색 설정 */
+	color: #0ff;
+}	
+	/* body 태그 선택자 */
+body {
+
+/* 	background-image: url(https://i.imgur.com/yzawecO.gif); */
+	
+	/* 배경 이미지의 크기 설정 */
+ 	background-size: 600px 400px;
+
+	/* 	배경 크기 단위 */
+	/* 	너비 높이: 너비와 높이를 직접 지정한다 */
+	
+	/* contain : 배경 이미지의 높이를 요소의 높이에 맞게 설정한다 */
+	/* cover: 배경 이미지의 너비를 요소의 너비에 맞게 설정한다 */
+	/* (contain, cover 모두 이미지 전체 크기는 원본 비율에 맞게 조절된다) */
+
+/* 	background-size: contain; */
+/* 	background-size: cover; */
+
+	/* -------------------------------------------------- */
+	
+	/* 배경 이미지의 반복되는 패턴 설정 */
+/* 	background-repeat: repeat; */
+/* 	background-repeat: no-repeat; */
+/* 	background-repeat: repeat-x; */
+	background-repeat: repeat-y;
+	
+	/* repeat(기본값) : x축, y축 모두 반복 */
+	/* no-repeat : 반복하지 않음 */
+	/* repeat-x : x축 반복 */
+	/* repeat-y : y축 반복 */
+}
+
+span {
+	/* inline요소는 상하margin이 없다 (화면에 반영되지 않는다) */
+	margin: 50px;
+	
+	/* inline요소는 너비, 높이 둘 다 화면에 반영되지 않는다 */
+	width: 200px;
+	height: 200px;
+}
+
+/* div 태그 선택자 */
+div {
+	margin: 20px;
+	
+	witdh: 400px;
+	height: 400px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>선택자</h1>
+<hr>
+
+<p>p 태그</p>
+<span>span 태그</span>
+<div>
+	div태그
+	<p>div태그 내 p태그</p>
+	안녕안녕!
+</div>
+
+</body>
+</html>

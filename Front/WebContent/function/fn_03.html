@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function hello() {
+	console.log("안녕하세요")
+}
+
+function thanks() {
+	console.log("감사해요")
+}
+
+//--------------------------------------
+
+function action(fn) {
+	fn();	//매개변수로 받은 함수를 호출하기
+	return fn;	//매개변수로 받은 함수를 리턴하기
+}
+
+//에러, 함수 안쪽에서 전달인자를 함수로 사용중
+// action(123)
+
+//action함수를 이용하여 hello함수 호출하기
+action( hello )
+
+//action함수를 이용하여 thanks함수 호출하기
+action( thanks )
+
+//--------------------------------------
+console.log("----------")
+// action함수를 이용하여 hello함수를 호출하고
+//다시 hello함수를 리턴받아 f변수에 저장한다
+var f = action(hello)
+
+//f변수에 hello함수가 저장되어있다 -> 함수호출 가능
+f();
+
+console.log("----------")
+
+action( thanks )()
+
+console.log("----------")
+
+action ( action( action(thanks) ) ) ()
+
+//--------------------------------------------
+
+//에러, 선선외지 않은 변수를 사용함
+// console.log(data)
+
+//--------------------------------------------
+
+//에러나지 않음
+//	-> 변수 선언 코드보다 이전에 변수를 사용해도
+//	에러나지 않는다
+console.log( num ) //undefined
+
+var num = 10;
+
+console.log( num ) //10
+
+// JS엔진 코드를 실행하기 전(정적인 시점)에
+//선언된 변수를 전부 생성한다
+//단, 초기화는 하지 않는다(undefined 상태가 된다)
+
+//	-> 호이스팅(Hoisting)현상
+
+//--------------------------------------------
+
+//글로벌 변수, 전역 변수
+//	GLobal Scope(전역 스코프)에 선언된 변수
+//	<script>태그 내에 곧바로 선언된 변수
+var value = 123;
+
+//--------------------------------------------
+
+//함수스코프의 변수를 사용할 수 없음
+// console.log( func_var )
+
+function func() {
+	//함수 지역 스코프, function scope	
+	//----------------------------------------
+	
+	//전역 변수 사용 가능
+	console.log(value)
+	//----------------------------------------
+	
+	//에러나지 않음 (호이스팅)
+	//	-> function scope에서 호이스팅
+	console.log(func_var)
+	
+	var func_var = 0;	
+}
+
+//함수 호출
+func();
+
+//
+// console.log( func_var )
+
+//---------------------------------------------
+
+//{}중괄호 블록
+//	블록 지역 스코프, Block Scope
+{
+	var block_var = 30;
+	console.log( block_var )
+}
+
+//출력됨, 블록스코프는 무시된다
+console.log( block_var )
+
+//----------------------------------------------
+
+//{}중괄호 블록
+{
+	let block_let = 40;
+	console.log( block_let )
+}
+
+//에러
+//	let변수는 블록스코프에 영향받는다
+//  블록스코프를 벗어나면 사용할 수 없는 변수
+//	console.log( block_let )
+
+//----------------------------------------------
+
+for(var i=0; i<5; i++) {
+}
+//출력됨, var변수는 function 스코프에만 적용됨
+console.log(i)
+
+//----------------------------------------------
+
+for(let j=0; j<5; j++) {
+}
+//에러, let변수는 block스코프에도 적용됨
+// console.log(j)
+
+//----------------------------------------------
+
+//let변수도 호이스팅(Hoisting)
+//	-> 변수는 미리 만들어짐
+//	-> 하지만, 변수 초기화 전에 접근할 수 없도록 해두었다
+//	-> 에러 발생함
+// console.log( data2 )
+
+let data2 = "Clare"
+
+//----------------------------------------------
+
+var data_var = 10;
+
+var data_var = 20;
+
+console.log( data_var )
+
+//----------------------------------------------
+
+//let변수는 이미 선언된 변수명을 다시 사용할 수 없다
+
+let data_let = 10;
+
+// let data_let = 20;	//에러
+
+console.log( data_let )
+
+//----------------------------------------------
+
+//const : 상수 생성 키워드
+
+//에러, 선언과 동시에 초기화 필수
+//	const data_const;
+
+//에러
+// console.log( data_const )
+
+const data_const = 60;
+
+console.log( data_const )
+
+//에러, 대입 불가
+// data_cost = 70;
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var $myDiv = $("#myDiv")
+	
+	//기존에 가지고 있던 컨텐츠를 전부 덮어씌운다
+	$myDiv.html("<h3>HTML div</h3>")
+	
+	//-------------------------------------------------
+	
+	var h = $myDiv.html()
+	console.log( h )
+	
+	h += "<div>insertNode</div>"
+	
+	console.log("--- 추가된 태그 텍스트 ")
+	console.log( h )
+	
+	//최종 태그텍스트를 #myDiv에 반영하기
+	$myDiv.html( h )
+	
+	//-------------------------------------------------
+	
+	//새로운 p태그노드 생성
+	var $p = $("<p>")
+	
+	$p.text("새로 만든 p태그입니다")
+	
+	$myDiv.append( $p )
+	
+	
+})
+</script>
+</head>
+<body>
+
+<div id="myDiv">
+<h1>jQuery 테스트</h1>
+
+</div>
+
+</body>
+</html>

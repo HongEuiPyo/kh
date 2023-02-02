@@ -1,0 +1,565 @@
+DROP TABLE custom_reply;
+DROP TABLE custom_board_attachment;
+DROP TABLE custom_board;
+
+DROP TABLE official_reply;
+DROP TABLE official_board_attachment;
+DROP TABLE official_board;
+
+DROP TABLE blacklist;
+DROP TABLE report_board;
+
+DROP TABLE shopping_board_attachment;
+DROP TABLE shopping_board;
+
+DROP TABLE qna_board_attachment;
+DROP TABLE qna_board_reply;
+DROP TABLE qna_board;
+
+DROP TABLE free_board_attachment;
+DROP TABLE free_board_reply;
+DROP TABLE free_board;
+
+DROP TABLE attachment_profile;
+
+DROP TABLE customcocktail;
+DROP TABLE officialcocktail;
+
+DROP TABLE email;
+DROP TABLE user_admin;
+DROP TABLE message;
+DROP TABLE user_info;
+
+ --쪽지DB 테이블
+CREATE TABLE message (
+msg_no NUMBER primary key,
+msg_send number,
+msg_rec number,
+msg_content VARCHAR2(500),
+msg_check CHAR,
+send_date DATE
+);
+
+DROP SEQUENCE message_seq;
+CREATE SEQUENCE message_seq;
+
+--오피셜 칵테일 DB
+CREATE TABLE officialcocktail (
+    official_cocktail_no NUMBER primary key, --칵테일번호
+    official_cocktail_name VARCHAR2(100), --칵테일이름
+    official_cocktail_detail VARCHAR2(2000), --칵테일설명
+    official_cocktail_ingred VARCHAR2(2000), --칵테일재료
+    official_cocktail_vote NUMBER --추천수
+);
+
+DROP SEQUENCE officailcocktail_seq;
+CREATE SEQUENCE officailcocktail_seq; --오피셜칵테일 번호 시퀀스
+
+
+--커스텀 칵테일 DB
+CREATE TABLE customcocktail (
+    custom_cocktail_no NUMBER primary key, --칵테일번호
+    custom_cocktail_name VARCHAR2(100), --칵테일이름
+    custom_cocktail_detail VARCHAR2(2000), --칵테일설명
+    cocktail_ingred VARCHAR2(2000), --칵테일재료
+    attach_no NUMBER, --칵테일 사진
+    custom_cocktail_vote NUMBER --추천수
+);
+
+DROP SEQUENCE customcocktail_seq;
+CREATE SEQUENCE customcocktail_seq; -- 커스텀칵테일 번호 시퀀스
+
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Mimosa,미모사', '프랑스에서는 옛날부터 Champagne a l’Orange(샴페인 아 로랑쥬)로서, 상류사회에서 즐겼던 칵테일. 색채가 미모사 꽃과 유사해서 미모사라는 애칭으로 불리웠다. 영국에서는 벅스 피즈(Bucks Fizz)라고 한다. Recipe:샴페인 잔에 오렌지 주스를 넣고, 샴페인을 살살 부어준 뒤 부드럽게 저어줍니다. Garnish:기호에 맞게 슬라이스 오렌지로 장식합니다.', '오렌지주스 75ml,샴페인 75ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Mojito,모히또', '럼(Rum)을 주재료로 넣은 럼 스매시(Rum Smash)에 레몬이나 라임주스를 첨가한 칵테일의 일종. Recipe:민트잎을 설탕과 라임 주스와 섞은 후 소다수를 넣고 잔에 얼음을 채웁니다. 럼주를 붓고 소다수를 붓습니다. 모든 재료가 섞이도록 가볍게 저어줍니다. Garnish:민트잎과 라임 슬라이스로 장식합니다.', '화이트 럼 45m,라임주스 120ml,민트잎,설탕 2tsp,소다수',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Pina Colada,피나콜라다', '알코올 맛보다는 진한 코코넛 향과 파인애플 주스가 어우러져 여성들의 사랑을 한몸에 받고 있는 트로피컬 칵테일 중 하나.Recipe:모든 재료를 얼음과 함께 블렌딩합니다.Garnish:칵테일 체리와 함께 파인애플 조각으로 장식합니다.', '화이트럼 50ml,코코넛크림 30ml,파인애플주스 50ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Sex on the Beach,섹스 온 더 비치', '섹스 온 더 비치(Sex on the Beach)는 보드카 기반의 칵테일이다.Recipe:얼음을 채운 하이볼 글라스에 모든 재료를 블렌드합니다.Garnish:오렌지슬라이스 반쪽으로 장식합니다.', '보드카 40ml,복숭아증류주 20ml,오렌지주스 40ml,크랜베리주스 40ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Margarita, 마가리타', '전통적으로 유명한 이 강력한 소화촉진제는 주로 테킬라와 크왕트로(프랑스산, 리큐르 술의 일종)로 만들지만, 보드카나 트리플 세크(리큐르 술의 상표명)로도 괜찮다.Recipe:모든 재료를 얼음과 함께 셰이커에 넣습니다.차갑게 한 칵테일 글라스에 따라 흔들어 섞습니다.Garnish:기호에 맞게 테에 가는 소금을 묻혀 프로스팅(frosting)을 입힙니다.', '데킬라 50ml,크왕트로(Cointreau) 20ml,라임주스 15ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Bloody Mary,블러디 메리', '블러디 메리(Bloody Mary)는 칵테일의 한 종류이다. Recipe:텀블러에 얼음을 넣고, 보드카, 토마토 주스, 레몬 주스를 따른 후, 젓습니다. 슬라이스 레몬으로 장식하고(컷트한 레몬을 사용하는 경우에는 글래스의 가장자리에 꽂아서, 마시는 사람이 기호에 맞게 적당하게 짜서 신맛을 조절하도록 합니다, 유리막대, 또는 셀로리 스틱을 첨가합니다. 식염, 후추, 셀로리 솔트, 타바스코 소스, 우스타 소스 등을 별도로 첨가합니다.Garnish:기호에 맞게 샐러리, 레몬으로 장식합니다.', '보드카 45ml,토마토주스 90ml,레몬주스 15ml,우스터소스,타바스코,샐러리소금,후추',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Grasshopper,그래스호퍼', '매력적인 녹색의, 민트향이 가미된 크림 칵테일이다. 검은 색의 크렘 드 카카오를 사용하면 녹색만큼 선명하진 않지만 맛은 똑같다.Recipe:얼음이 채워진 셰이커에 모든 재료를 붓습니다.몇 초 동안 세게 흔듭니다. 차갑게 식힌 칵테일 글라스에 따릅니다.Garnish:기호에 따라 민트잎으로 장식합니다.', '크렘 드 카카오(White) 20ml,크렘 드 멘테(Green) 20ml ,진한 크림 20ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Cosmopolitan,코스모폴리탄', '''세계인'', ''국제인'', ''범세계주의자'' 등의 세계적인 의미를 지닌 코스모폴리탄은 희미한 핑크색의 그러데이션이 매우 도시적이며 뉴욕 여성들에게 인기 있는 칵테일이다. Recipe:얼음을 채운 칵테일 셰이커에 모든 재료를 넣습니다. 잘 흔들어 큰 칵테일 글라스에 따른다.Garnish:레몬슬라이스로 장식한다', '보드카 40ml,쿠앵트로(Cointreau) 15ml,라임주스 15ml,크랜베리주스 30ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Long Island Ice Tea,롱 아일랜드 아이스티', '뉴욕주의 롱아일랜드에서 탄생한 후, 일본에 상륙한 것은 극히 최근으로, 이후 급속히 유행한 칵테일이다. 사용하는 술은 모두 40도를 넘는 강한 것. 외관상으로는 아이스 티이지만, 알코올 강도는 넉 아웃 칵테일 이상이다. 술기운이 오래가고 강렬하며 취하게 하는 음료이며, 콜라 색과 구별이 잘 안 된다.Recipe:얼음을 채운 하이볼 글라스에 모든 재료를 넣은 후 부드럽게 저어줍니다.Garnish:기호에 따라 레몬슬라이스로 장식합니다.', '보드카 15ml,데킬라 15ml ,화이트럼 15ml,진 15ml,쿠앵트로(Cointreau) 15ml ,레몬주스 30ml,시럽 20ml,콜라',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Mint Julep,민트 줄렙', '가장 오래된 칵테일이며, 미국의 남부에서 시작되었다. 신선한 민트 잎을 넣기도 한다.Recipe:스테인리스 컵에 설탕과 물로 민트를 부드럽게 다져 섞습니다. 잔에 크러쉬드 아이스를 채우고 버번 위스키를 넣고 잔의 표면이 차가워 질 때까지 잘 저어줍니다..Garnish:민트잎으로 장식한다.', '버번 위스키 60ml,민트잎 4개,파우더 설탕 1tsp ,물 2tsp',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Moscow Mule,모스크바 뮬', '전통적인 미국식 보드카 바탕의 칵테일이며, 색과 향을 위해 많은 양의 앙고스투라 맥주를 사용하고, 자극적으로 만들려면 보드카를 충분히 넣는다. Recipe:뮬 컵이나 락 글라스에 보드카와 진저 비어를 섞습니다. 라임 주스를 넣고 모든 재료가 섞이도록 부드럽게 저어줍니다.Garnish:라임슬라이스로 장식합니다.', '보드카 45ml,진저비어 120ml,라임주스 10ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Sea Breeze,시 브리즈', '이 칵테일은 알코올 도수가 낮은 드링크로, 그 이름이 주는 신선한 느낌과 더불어 많은 사람들에게 인기를 얻었다. 기법이 간단해 집에서도 손쉽게 만들 수 있는 칵테일로 집 안에서 시원한 바닷바람을 느끼고 싶을 때 보드카와 신선한 과일 주스로 시 브리즈를 만들어보는 것은 어떨까? Recipe:얼음을 채운 하이볼 글라스에 모든 재료를 담습니다.Garnish:체리로 장식합니다.', '보드카 40ml,크랜베리주스 120ml,자몽주스 30ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'June Bug,준벅', '''6월의 벌레''라는 의미로, 초록의 싱그러운 색깔이 그야말로 여름벌레를 연상시킨다. 벌들이 향기에 매료되어 꽃을 찾아다니듯, 여름날 초록의 상쾌한 색감 그리고 멜론과 코코넛의 달콤한 향기가 가득해 알코올조차 잘 느껴지지 않아 특히 여성들이 많이 찾는 칵테일 중 하나다.Recipe:칵테일 셰이커에 모든 재료를 넣어 흔들고 크러쉬드 아이스와 함께 칵테일 글라스에 따른다.Garnish:멜론조각으로 장식합니다.', '멜론증류주 30ml,말리부 럼 15ml ,크렘 드 바나나 15ml ,레몬주스 30ml,파인애플주스 60ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Kahlua Milk, 깔루아 밀크 ', '리큐르를 베이스로 한 칵테일. 말 그대로 우유에 커피 리큐르인 깔루아를 섞은 것으로 달콤하고 부드러우며 도수는 맥주와 비슷한 정도. 물론 우유를 섞는 양에 따라 도수는 달라진다. 깔루아의 달콤한 커피향과 우유의 부드러운 맛이 곁들여져서 술에 익숙하지 않은 사람들이 좋아한다. Recipe:셰이커에 깔루아를 넣고 얼음과 우유로 채운 뒤 흔듭니다.', '깔루아 45ml,우유',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Black Russian,블랙 러시안', '블랙 러시안이라는 이름은 러시아를 대표하는 보드카를 사용한다는 것과 색이 검정인 것에서 유래하였다. 커피 리큐어의 단맛이 독한 보드카를 부드럽게 하여, 알코올 함량이 높은데도 불구하고 감칠맛이 좋은 인상적인 칵테일이다. Recipe: 올드 패션 글라스에 보드카와 커피 리큐어를 넣은 후 얼음을 넣고 가볍게 젓는다.', '보드카 40ml,커피 리큐어 20ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Martini,마티니', '칵테일의 왕이다. 만드는 방법도 다양해서, 세계의 유명한 칵테일 서적에서 만드는 방법을 조사해 보면 100가지 정도나 된다. 또한 유사한 칵테일도 헤아릴 수 없을 정도로 많다.이 칵테일은 파티용으로서도 빼놓을 수 없는 칵테일이다. 파티나 아페리티프 칵테일로 마실 때는 여기에 제시되어 있는 방법보다 달게, 술집 등에서 독한 맛을 즐기는 사람에게는 드라이로 만든다. 또한 록으로도 만든다. Recipe: 재료를 혼합 글래스에 넣고 저은 후 칵테일 잔에 따릅니다.Garnish:올리브로 장식합니다.', '드라이진 75ml,드라이 베르무트 15ml,1drop 오렌지 비터,1개 그린올리브',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Blue Moon Cocktail,블루 문 칵테일', '1955년경, 트리스 바의 전성시, 감칠맛과 고급스러운 색으로 젊은 여성을 매료시킨 칵테일이다. 블루라는 깨끗하고 연한 자색으로, 리큐어의 달콤함과 레몬의 청량감이 조화를 잘 이루고 있다. 푸른 달이라는 로맨틱한 이름에는 ''불가능한 상담''이라는 의미도 있는, 신비적인 칵테일이다.Recipe:모든 재료를 셰이커에 넣고 흔든 뒤 칵테일 잔에 따릅니다.', '드라이진 30ml,바이올렛 리큐르 15ml,레몬 주스 15ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Old Fashioned,올드 패션', '명칭이 칵테일의 역사에서 유래한 것인데, 본래 올드 패션드는 양주, 설탕, 그리고 비터스 이 세 가지 재료를 쓴 단순한 조합의 음료였으며, 당시에는 비터드 슬링(Bittered Sling)이라 불렀다. 이후 19세기 미국에서 여러 바텐더들이 버번 위스키를 통해 이전의 단순한 맛에서 다양한 맛으로 바꾸기 위해 여러 번의 시도를 진행하게 된다. 올드 패션은 ''고풍''이라는 뜻인데, 이 이름과는 반대로, 지금도 폭넓은 연령층으로부터 사랑을 받고 있다. Recipe: 올드 패션 글래스에 넣은 각설탕에 비터를 쳐서 잘 스며들게 한 후 위스키를 붓는다. Garnish:오렌지 슬라이스, 레몬 슬라이스, 체리로 장식한다.', '본 위스키 45ml,앙고스투라 비터 2dashes,각설탕 1개,두꺼운 오렌지 슬라이스 1장,두꺼운 레몬 슬라이스 1장,체리 1개',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Midori Sour,미도리 사워', '사워(Sour)는 ''신'', ''시큼한''의 의미인데, 미도리 사워는 증류주에 산미와 단맛을 더해 만든 칵테일로 나라에 따라 소다수의 용량에 차이가 있다. 소다수를 사용하지 않는 경우와, 레몬 주스와 설탕을 사용하여 새콤달콤한 맛을 내며 청량감을 주는 경우도 있다. 다양한 증류주나 리큐어를 사용하여 여러 가지 사워 칵테일을 만들 수 있다. Recipe:미도리와 레몬주스,시럽을 섞은 후 잔에 따른 뒤 소다수를 채운다.', '미도리 45ml, 레몬주스 15ml,시럽5ml,소다수',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Blue Hawaii,블루하와이', '1957년 하와이 힐튼 호텔 바텐더가 개발한 이 칵테일은, 사계절이 여름인 하와이 섬을 연상시키는 트로피컬 칵테일이다. 화이트 럼과 블루 큐라소가 하와이의 시원하게 트인 하늘과 푸른 바다를 생생하게 재현하고 있다. 눈으로 보는 시원함과 입에서 느껴지는 새콤달콤한 맛이 더욱 돋보이는 칵테일로, 셰이커를 사용해도 좋고 블렌더를 사용한 프로즌 스타일로 시원하게 즐겨도 좋다. Recipe:재료를 모두 셰이커에 넣어 흔든 뒤 잔에 따른다.', '화이트 럼 30ml,블루 큐라소 15ml,파인애플주스 30ml,레몬주스 15ml ',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Peach Crush,피치 크러시', '여성들에게 상당히 인기가 있는 칵테일이지만, 적당한 알코올과 과일 향을 좋아하는 사람이라면 누구나 좋아할 만한 칵테일이다. 집에서 피치 리큐어와 주스를 이용해 만들어도 좋고, 부순 얼음을 만드는 것이 번거롭다면 큐브드 아이스(Cubed Ice)를 넣어도 된다. Recipe:크러쉬드 아이스를 넣은 후 재료를 모두 넣고 섞습니다.Garnish:체리와 레몬슬라이스로 장식합니다.', '피치 리큐어 30ml,사워 믹스 60ml,크랜베리주스 60ml',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Manhattan Cocktail,맨해튼', '위스키 베이스로, 칵테일의 여왕이라는 별칭을 가지고 있는 칵테일이다. 스위트 베르무트가 들어가 달콤한 맛을 지니고 있으며, 때문에 식전주로도 분류된다. Recipe:재료를 모두 믹싱 글라스에 넣고 얼음과 함께 섞습니다. 이후 얼음을 걸러내고 차갑게 식힌 마티니 글라스에 따릅니다. Garnish:체리로 장식합니다.', '라이 위스키 45ml,스위트 베르무트 20ml,앙고스투라 비터 1dash',0);
+INSERT INTO officialcocktail ( official_cocktail_no, official_cocktail_name, official_cocktail_detail, official_cocktail_ingred, official_cocktail_vote ) VALUES ( officailcocktail_seq.nextval, 'Rusty Nail,러스티 네일', '재료를 간단히 위스키라고 적고 있는 책도 있지만, 또 하나의 재료인 드란부이가 스카치 위스키를 베이스로 한 허니 리큐어이기 때문에, 혼합하는 경우에는 스카치 위스키로 하는 것이 좋다. 40도 이상의 술이 사용되기 때문에, 달콤하다고 해서 방심하고 과음하면 금방 취하므로 주의하기 바란다. Recipe: 재료를 모두 올드 패션 글래스에 붓고 얼음을 넣어 온 더 록 스타일로 한 후 가볍게 젓는다.', '스카치 위스키 30ml,드란부이 30ml',0);
+
+--rollback;
+commit;
+
+--회원정보 //생년월일 수정함(여진)
+CREATE TABLE user_info (
+	user_no NUMBER primary key, --회원번호
+	user_email VARCHAR2(100), --이메일
+	user_password VARCHAR2(100), --비밀번호
+	user_point NUMBER, --회원활동포인트
+	user_name VARCHAR2(10), --이름
+	user_birth VARCHAR2(10), --생년월일
+	user_check CHAR(1),  --홍보성이메일 수신동의여부
+	user_nickname VARCHAR2(100) --활동명
+);
+
+DROP SEQUENCE user_info_seq;
+CREATE SEQUENCE user_info_seq;
+
+--테스트 유저 삽입 //생년월일 수정함(여진)
+INSERT INTO user_info (user_no, user_email, user_password, user_point, user_name, user_birth, user_check, user_nickname )
+VALUES(user_info_seq.nextval,'abc@naver.com', 'qwerty', 10, '아무개', '19900101' , '0', '칵테일좋아');
+
+-- 첨부파일 프로필 사진
+CREATE TABLE attachment_profile(
+    profile_no number primary key, --프로필 번호
+    user_no number, --회원번호
+    profile_name varchar2(100), --프로필사진이름
+    FOREIGN KEY (user_no) REFERENCES user_info (user_no)
+);
+
+DROP SEQUENCE attachment_profile_seq;
+CREATE SEQUENCE attachment_profile_seq;
+
+--자유게시판 테이블
+CREATE TABLE free_board (
+	free_board_no NUMBER primary key,--글번호
+	user_no NUMBER, --회원번호
+	free_board_title varchar2(100),--글제목
+	free_board_content varchar2(2000),--글내용
+	free_board_date DATE default sysdate,--작성시간
+	free_board_hit NUMBER default 0,--조회수
+	free_board_vote NUMBER default 0, --추천수
+
+    FOREIGN KEY (user_no) REFERENCES user_info (user_no)
+);
+
+DROP SEQUENCE free_board_seq;
+CREATE SEQUENCE free_board_seq;
+
+--자유게시판 댓글
+CREATE TABLE free_board_reply (
+	free_reply_no NUMBER  primary key,
+	free_board_no NUMBER,
+	user_no NUMBER,
+	free_reply_content varchar2(200),
+	free_reply_date DATE default sysdate,
+	FOREIGN KEY (free_board_no) REFERENCES free_board (free_board_no),
+	FOREIGN KEY (user_no) REFERENCES user_info (user_no)
+);
+
+DROP SEQUENCE free_board_reply_seq;
+CREATE SEQUENCE free_board_reply_seq;
+
+ --자유게시판 첨부파일 테이블
+CREATE TABLE free_board_attachment(
+    attach_no number primary key,--첨부파일번호
+    free_board_no number, --게시글번호
+    original_file_name varchar2(100), --원본파일명
+    stored_file_name varchar2(100),--저장파일명
+    file_size number,--파일크기
+    file_date Date default sysdate, --업로드 날짜
+    FOREIGN KEY (free_board_no) REFERENCES free_board (free_board_no)
+);
+
+DROP SEQUENCE free_board_attachment_seq;
+CREATE SEQUENCE free_board_attachment_seq;
+
+
+-- 문의게시판 테이블
+CREATE TABLE qna_board (
+	qna_board_no NUMBER primary key, --문의번호
+	 user_no NUMBER, --회원번호
+	 qna_board_title varchar2(100),--문의게시판 제목
+	 qna_board_content varchar2(500), --문의내용
+	 qna_board_date DATE default sysdate, --문의일자
+	 FOREIGN KEY (user_no) REFERENCES user_info (user_no)
+ );
+
+DROP SEQUENCE qna_board_seq;
+CREATE SEQUENCE qna_board_seq;
+
+--문의게시판 답변
+CREATE TABLE qna_board_reply (
+	qna_reply_no NUMBER primary key,
+	qna_board_no NUMBER,
+	board_type varchar2(2),
+	user_no NUMBER,
+	qna_reply_content varchar2(2000),
+	qna_reply_date DATE default sysdate,
+	FOREIGN KEY (qna_board_no) REFERENCES qna_board (qna_board_no),
+	FOREIGN KEY (user_no) REFERENCES user_info (user_no)
+);
+
+DROP SEQUENCE qna_board_reply_seq;
+CREATE SEQUENCE qna_board_reply_seq;
+
+ -- 문의게시판 첨부파일 테이블
+CREATE TABLE qna_board_attachment(
+    attach_no number primary key,--첨부파일번호
+    qna_board_no number, --게시글번호
+    original_file_name varchar2(100), --원본파일명
+    stored_file_name varchar2(100),--저장파일명
+    file_size number,--파일크기
+    file_date Date default sysdate, --업로드 날짜
+    FOREIGN KEY (qna_board_no) REFERENCES qna_board (qna_board_no)
+);
+
+DROP SEQUENCE qna_board_attachment_seq;
+CREATE SEQUENCE qna_board_attachment_seq;
+
+
+--쇼핑정보 테이블
+CREATE TABLE shopping_board (
+	shopping_product_no NUMBER primary key, --상품번호
+	shopping_category VARCHAR2(20), --카테고리
+	shopping_product_title VARCHAR2(100), --상품명
+	shopping_product_price NUMBER, --가격
+	shopping_product_content VARCHAR2(200), --설명
+	shopping_product_link VARCHAR2(1000), --상품링크
+	shopping_img_link VARCHAR2(200) --이미지 링크
+);
+
+DROP SEQUENCE shopping_board_seq;
+CREATE SEQUENCE shopping_board_seq;
+
+  -- 쇼핑 첨부파일 테이블
+CREATE TABLE shopping_board_attachment(
+    attach_no number primary key,--첨부파일번호
+    board_no number, --게시글번호
+    original_file_name varchar2(100), --원본파일명
+    stored_file_name varchar2(100),--저장파일명
+    file_size number,--파일크기
+    file_date Date default sysdate, --업로드 날짜
+    FOREIGN KEY (board_no) REFERENCES shopping_board (shopping_product_no)
+);
+
+DROP SEQUENCE shopping_board_attachment_SEQ;
+CREATE SEQUENCE shopping_board_attachment_seq;
+
+--관리자
+CREATE TABLE user_admin (
+	admin_id VARCHAR2(100) primary key, --관리자 아이디
+	admin_pw VARCHAR2(100) --관리자 비밀번호
+);
+
+DROP SEQUENCE user_admin_seq;
+CREATE SEQUENCE user_admin_seq;
+
+
+--메일발송 기록
+CREATE TABLE email (
+	email_no NUMBER primary key,
+	admin_id VARCHAR2(100),
+	email_title VARCHAR2(20),
+	email_content VARCHAR2(1000),
+	email_date DATE default sysdate,
+	FOREIGN KEY (admin_id) REFERENCES user_admin (admin_id)
+);
+
+DROP SEQUENCE email_seq;
+CREATE SEQUENCE email_seq;
+
+--블랙리스트
+CREATE TABLE blacklist (
+	blacklist_no NUMBER  primary key, --블랙리스트 번호
+	admin_id VARCHAR2(100), --처리자
+	user_no NUMBER, --회원번호
+	blacklist_reason VARCHAR2(1000), --사유
+	FOREIGN KEY (admin_id) REFERENCES user_admin (admin_id)
+);
+
+DROP SEQUENCE blacklist_seq;
+CREATE SEQUENCE blacklist_seq;
+
+--신고글 목록
+CREATE TABLE report_board (
+	report_no NUMBER primary key,
+	report_link VARCHAR2(100),
+	report_board_title VARCHAR2(100),
+	report_board_done NUMBER
+);
+
+DROP SEQUENCE report_board_seq;
+CREATE SEQUENCE report_board_seq;
+
+--오피셜 칵테일 게시판
+CREATE TABLE official_board (
+	official_board_no NUMBER primary key,
+	official_board_title varchar2(100),
+	official_board_content varchar2(1000),
+	official_board_date DATE default sysdate,
+	official_board_vote NUMBER
+);
+
+DROP SEQUENCE official_board_seq;
+CREATE SEQUENCE official_board_seq;
+
+-- 오피셜 칵테일 첨부파일 게시판
+CREATE TABLE official_board_attachment(
+    attachment_no Number primary key,
+    official_board_no NUMBER,
+    original_file_name varchar2(100), --원본파일명
+    stored_file_name varchar2(100),--저장파일명
+    file_size number,--파일크기
+    file_date Date default sysdate, --업로드 날짜
+
+    FOREIGN KEY (official_board_no) REFERENCES official_board (official_board_no)
+);
+
+DROP SEQUENCE official_board_attachment_seq;
+CREATE SEQUENCE official_board_attachment_seq;
+
+--오피셜 칵테일 게시판 댓글
+CREATE TABLE official_reply (
+	official_reply_no NUMBER  primary key,
+	official_board_no NUMBER,
+	user_no NUMBER,
+	official_reply_content varchar2(200),
+	official_reply_date DATE default sysdate,
+
+	FOREIGN KEY (user_no) REFERENCES user_info (user_no),
+	FOREIGN KEY (official_board_no) REFERENCES officialcocktail (official_cocktail_no)
+);
+
+SELECT * FROM official_reply;
+select * FROM user_info;
+SELECT * FROM officialcocktail;
+
+DROP SEQUENCE OFFICIAL_REPLY_SEQ;
+CREATE SEQUENCE official_reply_seq;
+
+--커스텀 칵테일 게시판
+ CREATE TABLE custom_board (
+	 custom_board_no NUMBER primary key,
+	 user_no NUMBER ,
+	 custom_board_title varchar2(100),
+	 custom_board_content varchar2(2000),
+	 custom_board_date DATE default sysdate,
+	 custom_board_hit NUMBER,
+	 custom_board_vote NUMBER,
+
+	 FOREIGN KEY (user_no) REFERENCES user_info (user_no)
+ );
+
+DROP SEQUENCE custom_board_seq;
+CREATE SEQUENCE custom_board_seq;
+
+CREATE TABLE custom_board_attachment(
+    attachment_no Number primary key,
+    custom_board_no NUMBER,
+    original_file_name varchar2(100), --원본파일명
+    stored_file_name varchar2(100),--저장파일명
+    file_size number,--파일크기
+    file_date Date default sysdate,
+    FOREIGN KEY (custom_board_no) REFERENCES custom_board (custom_board_no)
+);
+
+DROP SEQUENCE custom_board_attachment_seq;
+CREATE SEQUENCE custom_board_attachment_seq;
+
+--커스텀 칵테일 게시판 댓글
+CREATE TABLE custom_reply (
+    custom_reply_no NUMBER primary key,
+    custom_board_no NUMBER,
+    user_no NUMBER,
+    custom_reply_content varchar2(200),
+    custom_reply_date DATE default sysdate,
+    FOREIGN KEY (user_no) REFERENCES user_info (user_no),
+    FOREIGN KEY (custom_board_no) REFERENCES custom_board (custom_board_no)
+ );
+
+DROP SEQUENCE custom_reply_seq;
+CREATE SEQUENCE custom_reply_seq;
+
+
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목1','어느정도 긴 내용의 content 테스트 데이터 1',sysdate,10,1);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목2','어느정도 긴 내용의 content 테스트 데이터 2',sysdate,30,2);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목3','어느정도 긴 내용의 content 테스트 데이터 3',sysdate,50,3);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목4','어느정도 긴 내용의 content 테스트 데이터 4',sysdate,70,4);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목5','어느정도 긴 내용의 content 테스트 데이터 5',sysdate,90,5);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목6','어느정도 긴 내용의 content 테스트 데이터 6',sysdate,110,6);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목7','어느정도 긴 내용의 content 테스트 데이터 7',sysdate,130,7);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목8','어느정도 긴 내용의 content 테스트 데이터 8',sysdate,150,8);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목9','어느정도 긴 내용의 content 테스트 데이터 9',sysdate,170,9);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목10','어느정도 긴 내용의 content 테스트 데이터 10',sysdate,190,10);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목11','어느정도 긴 내용의 content 테스트 데이터 11',sysdate,210,11);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목12','어느정도 긴 내용의 content 테스트 데이터 12',sysdate,230,12);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목13','어느정도 긴 내용의 content 테스트 데이터 13',sysdate,250,13);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목14','어느정도 긴 내용의 content 테스트 데이터 14',sysdate,270,14);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목15','어느정도 긴 내용의 content 테스트 데이터 15',sysdate,290,15);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목16','어느정도 긴 내용의 content 테스트 데이터 16',sysdate,310,16);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목17','어느정도 긴 내용의 content 테스트 데이터 17',sysdate,330,17);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목18','어느정도 긴 내용의 content 테스트 데이터 18',sysdate,350,18);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목19','어느정도 긴 내용의 content 테스트 데이터 19',sysdate,370,19);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목20','어느정도 긴 내용의 content 테스트 데이터 20',sysdate,390,20);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목21','어느정도 긴 내용의 content 테스트 데이터 21',sysdate,410,21);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목22','어느정도 긴 내용의 content 테스트 데이터 22',sysdate,430,22);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목23','어느정도 긴 내용의 content 테스트 데이터 23',sysdate,450,23);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목24','어느정도 긴 내용의 content 테스트 데이터 24',sysdate,470,24);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목25','어느정도 긴 내용의 content 테스트 데이터 25',sysdate,490,25);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목26','어느정도 긴 내용의 content 테스트 데이터 26',sysdate,510,26);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목27','어느정도 긴 내용의 content 테스트 데이터 27',sysdate,530,27);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목28','어느정도 긴 내용의 content 테스트 데이터 28',sysdate,550,28);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목29','어느정도 긴 내용의 content 테스트 데이터 29',sysdate,570,29);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목30','어느정도 긴 내용의 content 테스트 데이터 30',sysdate,590,30);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목31','어느정도 긴 내용의 content 테스트 데이터 31',sysdate,610,31);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목32','어느정도 긴 내용의 content 테스트 데이터 32',sysdate,630,32);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목33','어느정도 긴 내용의 content 테스트 데이터 33',sysdate,650,33);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목34','어느정도 긴 내용의 content 테스트 데이터 34',sysdate,670,34);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목35','어느정도 긴 내용의 content 테스트 데이터 35',sysdate,690,35);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목36','어느정도 긴 내용의 content 테스트 데이터 36',sysdate,710,36);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목37','어느정도 긴 내용의 content 테스트 데이터 37',sysdate,730,37);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목38','어느정도 긴 내용의 content 테스트 데이터 38',sysdate,750,38);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목39','어느정도 긴 내용의 content 테스트 데이터 39',sysdate,770,39);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목40','어느정도 긴 내용의 content 테스트 데이터 40',sysdate,790,40);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목41','어느정도 긴 내용의 content 테스트 데이터 41',sysdate,810,41);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목42','어느정도 긴 내용의 content 테스트 데이터 42',sysdate,830,42);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목43','어느정도 긴 내용의 content 테스트 데이터 43',sysdate,850,43);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목44','어느정도 긴 내용의 content 테스트 데이터 44',sysdate,870,44);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목45','어느정도 긴 내용의 content 테스트 데이터 45',sysdate,890,45);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목46','어느정도 긴 내용의 content 테스트 데이터 46',sysdate,910,46);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목47','어느정도 긴 내용의 content 테스트 데이터 47',sysdate,930,47);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목48','어느정도 긴 내용의 content 테스트 데이터 48',sysdate,950,48);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목49','어느정도 긴 내용의 content 테스트 데이터 49',sysdate,970,49);
+insert into custom_board (custom_board_no, user_no, custom_board_title, custom_board_content, custom_board_date, custom_board_hit, custom_board_vote) values (custom_board_seq.nextval,1,'제목50','어느정도 긴 내용의 content 테스트 데이터 50',sysdate,990,50);
+
+
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_RM', '바카디 화이트 ', 30000, '화이트 럼은 투명하거나 아주 연한 황금빛을 띄는 것을 말합니다. 부드러운 향과 드라이한 풍미때문에 칵테일에 많이 사용되는 주종입니다', 'http://hellobaking.com/product/%EB%B0%94%EC%B9%B4%EB%94%94-%ED%99%94%EC%9D%B4%ED%8A%B8-750ml/1182/', '/resources/img/barcardi.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_RM', '바카디 블랙', 29000, '다크 럼은 헤비 럼이라 불리기도 하며 이름처럼 묵직한 바디감과 풍미가 특징입니다. 짙은 호박색에서 검은색을 띄고 있습니다.', 'http://wine1865.co.kr/view/004_003_259#.YWjgRRpByUk', '/resources/img/barcardi_black.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '잭 다니엘', 49000, '일반적으로 숙성 연도가 짧아 목넘김이 비교적 거칠다. 국내에서는 주로 잭콕이라는 칵테일의 형태로 소비되며, 음료수와 함께 마시는 게 일반적이다.', 'http://wine1865.co.kr/view/002_001_179#.YWjipxpByUk', '/resources/img/jackdaniels.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '짐빔', 30000, '우리나라에서의 소주와 비슷한 술이다. 주로 짐빔 코크라는 칵테일 형태로 소비되고, 미국에서도 음료수에 타서 마시는 것이 일반적이다.', 'http://wine1865.co.kr/view/002_001_77#.YWjkZBpByUk', '/resources/img/jimbeam.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '로얄살루트 ', 198000, '영국왕실의 큰 행사에서 축포를 쏘는것에서 비롯되었으며, 예를 갖추는 마음으로 만들어진 고급술의 대명사로 불리우게 되었다.', 'http://wine1865.co.kr/view/002_002_337#.YWjllBpByUk', '/resources/img/royalsalute.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_JN', '봄베이 사파이어', 29000, '증류한 알코올의 증기가 향료들을 직접적으로 통과하는 방식을 사용하고 있다. 감초, 아몬드등의 10가지 재료를 사용한다고 한다.', 'http://wine1865.co.kr/view/004_002_209#.YWjmchpByUk', '/resources/img/bombaysapphire.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_RM', '바카디 모히토', 29000, '모히토의 원조 베이스로 알려져 있는 ‘바카디 슈페리어’를 사용했다. 라임과 민트의 산뜻함이 어우러져 최고의 모히토 칵테일 맛을 자랑한다.', 'http://wine1865.co.kr/view/004_003_260#.YWjnoxpByUk', '/resources/img/bacardimojito.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_VO', '스미노프 레드', 30000, '자작나무 숯을 이용해 10번의 여과를 거친 순수한 보드카로 무색, 무취, 무향의 가장 순수한 형태', 'http://wine1865.co.kr/view/004_004_34#.YWjoyBpByUk', '/resources/img/smirnoffred.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '시바스 리갈', 24000, '상큼한 후르츠와 카라멜 노트 단 맛 덕분에 칵테일 베이스로도 뛰어나고 온더락을 하면 부드럽게 넘어간다. 느끼한 향이 적어 마시기 쉽다.', 'http://wine1865.co.kr/view/002_002_18#.YWjvDBpByiM', '/resources/img/chivasregal.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '글렌피딕', 65000, '생산부터 숙성까지 전통 방식을 고수하는 전통적인 위스키이다. 더 맥켈란과 달리 버번 캐스크 원액을 주로 사용하여 화려한 오크향이 특징이다', 'http://wine1865.co.kr/view/002_002_214#.YWjwqBpByiM', '/resources/img/glenfiddich.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '쉐이커', 9900, '칵테일 전용 쉐이커 SET', 'http://item.gmarket.co.kr/Item?goodscode=2186772919', '/resources/img/shaker.png');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '칵테일 스트레이너', 3270, '칵테일용 스트레이너', 'https://www.11st.co.kr/products/954767706', 'http://www.dishsum.com/shopimages/dishsum/0050060000082.jpg?1548592287');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '칵테일픽', 9640, '드롭형 위생장갑 칵테일픽 1개', 'https://smartstore.naver.com/1omafol/products/5920767897?NaPm=ct%3Dkusll3d4%7Cci%3Da237199d49673f280ce18418d1671685737523b2%7Ctr%3Dslsl%7Csn%3D1592456%7Chk%3D9b2bc554648bfb6a8730a8f6b62ff38cdd859215', '/resources/img/cocktailpick.png');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '칵테일 스퀴저', 7100, '칵테일용 레몬 스퀴저', 'http://barmade.co.kr/product/%EC%8A%A4%ED%85%8C%EC%9D%B8%EB%A6%AC%EC%8A%A4-%EC%8A%A4%ED%80%B4%EC%A0%B8-stainless-squeezer/788/category/36/display/1/', 'http://gi.esmplus.com/runglobal/img/210914/W7A14EF.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '일드프랑스 브리 오 블루', 15010, '브리오 블루조합의 치즈', 'https://cheesequeen.co.kr/goods/view?no=1565', 'https://cheesequeen.co.kr/data/goods/1/2017/01/1565_tmp_14840196778352view.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '브리미 리코타', 8100, '품질좋은 리코타 치즈', 'https://cheesequeen.co.kr/goods/view?no=252', 'https://cheesequeen.co.kr/data/goods/201606/252_23134302view.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '훈제 연어', 14000, '생 연어(냉장)', 'http://item.gmarket.co.kr/Item?goodscode=1730368265', '/resources/img/salmon.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '샐러드', 5900, '샐러드 5종', 'https://smartstore.naver.com/ginsmartfarm/products/5764225560', '/resources/img/salad.jpg');
+
+--자유게시판 게시글 더미데이터
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title1', 'content1');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title2', 'content2');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title3', 'content3');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title4', 'content4');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title5', 'content5');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title6', 'content6');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title7', 'content7');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title8', 'content8');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title9', 'content9');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title10', 'content10');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title11', 'content11');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title12', 'content12');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title13', 'content13');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title14', 'content14');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title15', 'content15');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title16', 'content16');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title17', 'content17');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title18', 'content18');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title19', 'content19');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title20', 'content20');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title21', 'content21');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title22', 'content22');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title23', 'content23');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title24', 'content24');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title25', 'content25');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title26', 'content26');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title27', 'content27');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title28', 'content28');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title29', 'content29');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+INSERT INTO free_board (free_board_no, user_no, free_board_title, free_board_content) VALUES (free_board_seq.nextval, '1', 'title30', 'content30');
+INSERT INTO free_board_attachment ( attach_no, free_board_no) VALUES ( free_board_attachment_seq.nextval, free_board_seq.currval);
+
+SET DEFINE OFF;
+
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_RM', '바카디 화이트 ', 30000, '화이트 럼은 투명하거나 아주 연한 황금빛을 띄는 것을 말합니다. 부드러운 향과 드라이한 풍미때문에 칵테일에 많이 사용되는 주종입니다', 'http://hellobaking.com/product/%EB%B0%94%EC%B9%B4%EB%94%94-%ED%99%94%EC%9D%B4%ED%8A%B8-750ml/1182/', '/resources/img/barcardi.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_RM', '바카디 블랙', 29000, '다크 럼은 헤비 럼이라 불리기도 하며 이름처럼 묵직한 바디감과 풍미가 특징입니다. 짙은 호박색에서 검은색을 띄고 있습니다.', 'http://wine1865.co.kr/view/004_003_259#.YWjgRRpByUk', '/resources/img/barcardi_black.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '잭 다니엘', 49000, '일반적으로 숙성 연도가 짧아 목넘김이 비교적 거칠다. 국내에서는 주로 잭콕이라는 칵테일의 형태로 소비되며, 음료수와 함께 마시는 게 일반적이다.', 'http://wine1865.co.kr/view/002_001_179#.YWjipxpByUk', '/resources/img/jackdaniels.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '짐빔', 30000, '우리나라에서의 소주와 비슷한 술이다. 주로 짐빔 코크라는 칵테일 형태로 소비되고, 미국에서도 음료수에 타서 마시는 것이 일반적이다.', 'http://wine1865.co.kr/view/002_001_77#.YWjkZBpByUk', '/resources/img/jimbeam.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '로얄살루트 ', 198000, '영국왕실의 큰 행사에서 축포를 쏘는것에서 비롯되었으며, 예를 갖추는 마음으로 만들어진 고급술의 대명사로 불리우게 되었다.', 'http://wine1865.co.kr/view/002_002_337#.YWjllBpByUk', '/resources/img/royalsalute.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_JN', '봄베이 사파이어', 29000, '증류한 알코올의 증기가 향료들을 직접적으로 통과하는 방식을 사용하고 있다. 감초, 아몬드등의 10가지 재료를 사용한다고 한다.', 'http://wine1865.co.kr/view/004_002_209#.YWjmchpByUk', '/resources/img/bombaysapphire.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_RM', '바카디 모히토', 29000, '모히토의 원조 베이스로 알려져 있는 ‘바카디 슈페리어’를 사용했다. 라임과 민트의 산뜻함이 어우러져 최고의 모히토 칵테일 맛을 자랑한다.', 'http://wine1865.co.kr/view/004_003_260#.YWjnoxpByUk', '/resources/img/bacardimojito.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_VO', '스미노프 레드', 30000, '자작나무 숯을 이용해 10번의 여과를 거친 순수한 보드카로 무색, 무취, 무향의 가장 순수한 형태', 'http://wine1865.co.kr/view/004_004_34#.YWjoyBpByUk', '/resources/img/smirnoffred.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '시바스 리갈', 24000, '상큼한 후르츠와 카라멜 노트 단 맛 덕분에 칵테일 베이스로도 뛰어나고 온더락을 하면 부드럽게 넘어간다. 느끼한 향이 적어 마시기 쉽다.', 'http://wine1865.co.kr/view/002_002_18#.YWjvDBpByiM', '/resources/img/chivasregal.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'AL_WK', '글렌피딕', 65000, '생산부터 숙성까지 전통 방식을 고수하는 전통적인 위스키이다. 더 맥켈란과 달리 버번 캐스크 원액을 주로 사용하여 화려한 오크향이 특징이다', 'http://wine1865.co.kr/view/002_002_214#.YWjwqBpByiM', '/resources/img/glenfiddich.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '쉐이커', 9900, '칵테일 전용 쉐이커 SET', 'http://item.gmarket.co.kr/Item?goodscode=2186772919', '/resources/img/shaker.png');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '칵테일 스트레이너', 3270, '칵테일용 스트레이너', 'https://www.11st.co.kr/products/954767706', 'http://www.dishsum.com/shopimages/dishsum/0050060000082.jpg?1548592287');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '칵테일픽', 9640, '드롭형 위생장갑 칵테일픽 1개', 'https://smartstore.naver.com/1omafol/products/5920767897?NaPm=ct%3Dkusll3d4%7Cci%3Da237199d49673f280ce18418d1671685737523b2%7Ctr%3Dslsl%7Csn%3D1592456%7Chk%3D9b2bc554648bfb6a8730a8f6b62ff38cdd859215', '/resources/img/cocktailpick.png');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '칵테일 스퀴저', 7100, '칵테일용 레몬 스퀴저', 'http://barmade.co.kr/product/%EC%8A%A4%ED%85%8C%EC%9D%B8%EB%A6%AC%EC%8A%A4-%EC%8A%A4%ED%80%B4%EC%A0%B8-stainless-squeezer/788/category/36/display/1/', 'http://gi.esmplus.com/runglobal/img/210914/W7A14EF.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '일드프랑스 브리 오 블루', 15010, '브리오 블루조합의 치즈', 'https://cheesequeen.co.kr/goods/view?no=1565', 'https://cheesequeen.co.kr/data/goods/1/2017/01/1565_tmp_14840196778352view.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '브리미 리코타', 8100, '품질좋은 리코타 치즈', 'https://cheesequeen.co.kr/goods/view?no=252', 'https://cheesequeen.co.kr/data/goods/201606/252_23134302view.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '훈제 연어', 14000, '생 연어(냉장)', 'http://item.gmarket.co.kr/Item?goodscode=1730368265', '/resources/img/salmon.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '샐러드', 5900, '샐러드 5종', 'https://smartstore.naver.com/ginsmartfarm/products/5764225560', '/resources/img/salad.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '칵테일 블리세 마가리타', 19200, '칵테일 블리세 마가리타 잔 1개', 'https://www.hottracks.co.kr/ht/product/detail?barcode=2315036924311&foo=bar&rccode=pc_category3', 'http://image.kyobobook.co.kr/newimages/giftshop_new/goods/400/1967/S1631704914511.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '소믈리에 기본형 칵테일잔', 8100, '소믈리에 기본형 칵테일 잔 1개', 'https://www.hottracks.co.kr/ht/product/detail?barcode=2315036924366&ctgrId=0000260117', 'http://image.kyobobook.co.kr/newimages/giftshop_new/goods/400/1093/S1631704923481.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '칵테일 비어글라스', 10800, '기본형 클리어 칵테일 비어글라스 1개', 'https://www.hottracks.co.kr/ht/product/detail?barcode=2315027584340&foo=bar&rccode=pc_detail1', 'http://image.kyobobook.co.kr/newimages/giftshop_new/goods/400/1971/S1615078608265.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '위스키 글라스', 3600, '크리스탈 위스키 스템 테이스팅 글라스 125ml', 'http://mall.itsbarda.com/product/detail.html?product_no=2484&cate_no=97&display_group=1', 'http://mall.itsbarda.com/web/product/small/202106/92755b426f84aa87b7eb81d42fe671e4.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '믹싱 글라스', 37000, 'SGS 스텐 빗살 믹싱 글라스 550ml', 'http://mall.itsbarda.com/product/detail.html?product_no=3031&cate_no=58&display_group=1', 'http://mall.itsbarda.com/web/product/small/202106/9fe475f880cc20e565a93570bc3890f7.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '가니쉬 컨테이너', 21000, '가니쉬 컨테이너 6구', 'http://mall.itsbarda.com/product/detail.html?product_no=3148&cate_no=1&display_group=3', 'http://mall.itsbarda.com/web/product/small/202109/4dbfd9644a3280599723d03afdc48b6c.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '건조 슬라이스 오렌지', 7200, '건조 슬라이스 오렌지 50g [베티나르디]', 'http://mall.itsbarda.com/product/detail.html?product_no=3139&cate_no=1&display_group=3', 'http://mall.itsbarda.com/web/product/small/202109/41c82ab065d5cdc5b873b0b70fe4c40d.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '건조 슬라이스 만다린', 9000, '건조 슬라이스 만다린 50g [베티나르디]', 'http://mall.itsbarda.com/product/detail.html?product_no=3141&cate_no=109&display_group=1', 'http://mall.itsbarda.com/web/product/small/202109/23b090afac9db525022b1ce2e6136539.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '건조 슬라이스 레몬', 7200, '건조 슬라이스 레몬 50g [베티나르디]', 'http://mall.itsbarda.com/product/detail.html?product_no=3140&cate_no=109&display_group=1', 'http://mall.itsbarda.com/web/product/small/202109/5ce8e24c7fab4fef5edd8bdb06f7866c.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '레드 체리', 3700, '레드 체리 375g[꼭지 있음]', 'http://mall.itsbarda.com/product/detail.html?product_no=3126&cate_no=109&display_group=1', 'http://mall.itsbarda.com/web/product/small/202109/daab76606b190a15e3078343deccfbee.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '그린 올리브', 1900, '리치스 그린 올리브 피멘토 365g', 'http://mall.itsbarda.com/product/detail.html?product_no=3078&cate_no=109&display_group=1', 'http://mall.itsbarda.com/web/product/small/202107/16aec84457cd04460807d88d08aad89d.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '그린애플 시럽', 13500, '모닌 그린애플 시럽 1L', 'http://mall.itsbarda.com/product/detail.html?product_no=2500&cate_no=112&display_group=1', 'http://mall.itsbarda.com/web/product/small/202007/b9a8ffa312cc625a8fa600c07d295fb0.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '라즈베리 시럽', 13500, '모닌 라즈베리 시럽 1L', 'http://mall.itsbarda.com/product/detail.html?product_no=2501&cate_no=112&display_group=1', 'http://mall.itsbarda.com/web/product/small/202007/a94a3ec41b7c221c8c3b6e290db01eed.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '레몬 시럽', 13500, '모닌 레몬글래스코 시럽 1L', 'http://mall.itsbarda.com/product/detail.html?product_no=2502&cate_no=112&display_group=1', 'http://mall.itsbarda.com/web/product/small/202007/d4809dc640a87afd28663dcd93021c3e.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '민트 시럽', 13500, '모닌 모히토민트 시럽 1L', 'http://mall.itsbarda.com/product/detail.html?product_no=2504&cate_no=112&display_group=1', 'http://mall.itsbarda.com/web/product/small/202007/30a1d46caa0e81a860f4a801443c3e16.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '체리 시럽', 13500, '모닌 체리 시럽 1L', 'http://mall.itsbarda.com/product/detail.html?product_no=2515&cate_no=112&display_group=1', 'http://mall.itsbarda.com/web/product/small/202007/6616341a64f3ef941b800aa625463d91.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '주스 컨테이너', 7500, '주스컨테이너 1P 500ml', 'http://mall.itsbarda.com/product/detail.html?product_no=2740&cate_no=88&display_group=1', 'http://mall.itsbarda.com/web/product/small/202009/3ce67b88535dbc8a0218a0513a12bca9.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '주스 컨테이너', 8500, '주스컨테이너 1P 1L', 'http://mall.itsbarda.com/product/detail.html?product_no=2741&cate_no=88&display_group=1', 'http://mall.itsbarda.com/web/product/small/202009/e68e4a88549aa5eb2575e1f0a6035dfc.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '주스 컨테이너', 9500, '주스컨테이너 1P 2L', 'http://mall.itsbarda.com/product/detail.html?product_no=2741&cate_no=88&display_group=1', 'http://mall.itsbarda.com/web/product/small/202009/e68e4a88549aa5eb2575e1f0a6035dfc.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '리치스 체리에이드 파우더', 3800, '체리에이드 파우더 550g', 'http://mall.itsbarda.com/product/detail.html?product_no=3081&cate_no=114&display_group=1', 'http://mall.itsbarda.com/web/product/small/202107/5f29dc3fb0c7c980fbb86adab08f1d1b.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '리치스 제주 차광 말차 믹스', 3800, '제주 차광 말차 믹스 550g', 'http://mall.itsbarda.com/product/detail.html?product_no=3082&cate_no=114&display_group=1', 'http://mall.itsbarda.com/web/product/small/202107/e466ae4d2260fc9d357c691218187935.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '리치스 레몬에이드 파우더', 3800, '레몬에이드 파우더 550g', 'http://mall.itsbarda.com/product/detail.html?product_no=3079&cate_no=114&display_group=1', 'http://mall.itsbarda.com/web/product/small/202107/4cb7e88dfb38e2df3d1cb50120effd07.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'FOOD', '리치스 복숭아 아이스티 파우더', 3800, '복숭아 아이스티 파우더 550g', 'http://mall.itsbarda.com/product/detail.html?product_no=3084&cate_no=114&display_group=1', 'http://mall.itsbarda.com/web/product/small/202107/e54d827154fd6162bb0d679fb639794b.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '저그 피쳐병', 2700, '다용도 저그 피처병 250ml', 'http://mall.itsbarda.com/product/detail.html?product_no=2736&cate_no=89&display_group=1', 'http://mall.itsbarda.com/web/product/small/202009/cf58dca0f415227bcb6ba41526f1dc61.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '저그 피쳐병', 3900, '다용도 저그 피처병 1000ml', 'http://mall.itsbarda.com/product/detail.html?product_no=2738&cate_no=89&display_group=1', 'http://mall.itsbarda.com/web/product/small/202009/8130c6e35476264f6e0de3e2599e9605.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '저그 피쳐병', 2900, '다용도 저그 피처병 500ml', 'http://mall.itsbarda.com/product/detail.html?product_no=2737&cate_no=89&display_group=1', 'http://mall.itsbarda.com/web/product/small/202009/88dd620b8a11ced0ac240dd6317e05ec.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '아이스 버켓', 16000, '아크릴 아이스버켓 소', 'http://mall.itsbarda.com/product/detail.html?product_no=2604&cate_no=87&display_group=1', 'http://mall.itsbarda.com/web/product/small/202007/9ceea822e4bbce302759bf120c48fd17.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '아이스 버켓', 25000, '아크릴 아이스버켓 중', 'http://mall.itsbarda.com/product/detail.html?product_no=2605&cate_no=87&display_group=1', 'http://mall.itsbarda.com/web/product/small/202007/44143bcfb9ebfd730313423579a34cfd.jpg');
+INSERT INTO shopping_board (shopping_product_no, shopping_category, shopping_product_title, shopping_product_price, shopping_product_content, shopping_product_link, shopping_img_link) VALUES (shopping_board_seq.nextval, 'TO', '아이스 버켓', 36000, '아크릴 아이스버켓 대', 'http://mall.itsbarda.com/product/detail.html?product_no=2606&cate_no=87&display_group=1', 'http://mall.itsbarda.com/web/product/small/202007/e1d0d62738eb6d249bc8598842fcc7d8.jpg');
+
+commit;
+

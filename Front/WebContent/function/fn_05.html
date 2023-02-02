@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+
+<script type = "text/javascript">
+
+//전역변수
+var num = 111;
+
+//외부 함수
+function hello() {
+	
+	//지역변수 num이 없다면 전역변수 num에 접근한다
+	//지역변수 num이 있다면 지역변수 num이 호이스팅된다
+	console.log(num)
+	
+	var num = 222;	//	외부함수의 지역변수
+	console.log("안녕하세요 :", num)
+	
+	//내부 함수
+	function inner() {
+		
+		var num = 333;	//	내부함수의 지역변수
+		console.log("내부함수입니다 :", num)
+	}
+	
+	//내부 함수 호출
+	inner();
+	
+}
+
+//함수 호출
+hello();
+
+</script>
+
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

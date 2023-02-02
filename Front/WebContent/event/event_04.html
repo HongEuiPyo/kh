@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#myDiv {
+	border: 1px solid #ccc;
+}
+</style>
+<script type="text/javascript">
+window.onload = function() {
+	//mouseenter - mouseleave 서로 짝꿍
+	//mouseover - mouseout 서로 짝꿍
+	
+	//mouseenter
+	//	-> 자식요소를 각각의 영역으로 생각하지 않는다
+	//	-> div전체 테두리 영역만 경계로 처리함
+	myDiv.onmouseenter = function() {
+		console.log("enter")
+	}
+	
+	//mouseover
+	//	-> 자식요소를 각각의 영역으로 생각한다
+	//	-> div포함, 자식 요소들의 테두리 영역을 경계로 처리함
+	myDiv.onmouseover = function() {
+		console.log("over")
+	}
+	
+}
+</script>
+
+</head>
+<body>
+
+<div id="myDiv">
+	<button>하하</button>
+	호호
+</div>
+
+</body>
+</html>
+
+
+
+
+

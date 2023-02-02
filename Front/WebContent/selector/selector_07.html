@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+/* hover: 마우스가 올라간 div요소 선택 */
+div:hover{
+	color: red;
+}
+
+span:hover{
+	background-color: green;
+}
+
+/*---------------------------------------------*/
+
+/* active: 마우스 눌림(클릭)이 발생한 span요소 선택*/
+span:active {
+	color: orange;
+	font-size: 30px;
+}
+
+/* 마우스 눌림이 발생한 button요소 선택 */
+/* 	-> <input type="button" />은 선택하지 않는다 */
+/* 	-> disabled속성을 가진 <button>도 선택하지 않는다*/
+button:active {
+	color: green;
+}
+/* 마우스 눌림이 발생한 type속성이 "button"으로 지정된 input 요소 선택 */
+input[type="button"]:active {
+	color: tomato;
+}
+
+:disabled {
+	font-size: 8px;
+}
+
+:enalbled {
+	font-style: italic;
+}
+
+:checked{
+	width: 50px;
+	height: 50px;
+}
+
+input[type="checkbox"]:checked + label {
+	color: blue;
+}
+
+#chk:checked + label {
+	color: tomato;
+}
+
+/* 포커스를 얻은 요소 선택 */
+:focus {
+	color: maroon;
+}
+
+/* 자식이 없는 요소 선택 */
+/* :empty{ */
+div:empty {
+	height: 20px;
+	background: yellow;
+}
+
+
+</style>
+</head>
+<body>
+
+<div>
+<span>span태그 안쪽</span>span태그 바깥쪽<br>
+<input type="button" value="확인" /><br>
+
+<a href="https://www.naver.com">네이버</a>
+<a href="https://www.daum.net">다음</a>
+<a href="https://www.daum.net">다음</a>
+<hr>
+
+<label><input type="checkbox" />확인</label>
+<label><input type="radio" />라디오</label>
+
+<input type="checkbox" id="chk" />
+<label for="chk">체크</label>
+
+<button disabled="disabled">버튼</button>
+<button>버튼</button>
+
+<hr>
+
+<div></div>
+<hr>
+
+<input type="text" />
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	var Reader = function(event) {
+		var data = event.target;
+		
+		var reader = new FileReader();
+		reader.onload = function() {
+			var dataURL = reader.result;
+			var output = document.getElementById('output');
+			output.src = dataURL;
+		};
+		
+		reader.readAsDataURL(data.files[0]);	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+})
+
+</script>
+</head>
+<body>
+
+<input type="file" id="upload" multiple="multiple" />
+
+<div id="preview"></div>
+
+</body>
+</html>

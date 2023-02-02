@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.content {
+	border: 1px solid #ccc;
+}
+
+h1[data-index="1"] {
+	background-color: red;
+}
+
+h1[data-type="text"] {
+	color: blue;
+}
+
+h1[data-type="number"] {
+	color: red;
+}
+
+</style>
+</head>
+<body>
+
+<h1 class="content index1 text">첫번째</h1>
+
+<h1 class="content index2 number">22222</h1>
+
+<h1 class="content index3 text">세번째</h1>
+
+<h1 class="content index4 number">44444</h1>
+
+<!-- class 속성 -->
+<!-- 	HTML문서의 태그들에게 공통CSS를 적용하기 위해 사용 -->
+
+<!-- 	 브라우저가 CSS를 이용해서 스타일을 적용할 때
+		모든 class속성값들을 전체 탐색한다 -->
+
+<!-- 	모든 태그의 모든 class속성값을 다 읽어서 스타일 적용 -->
+<!-- 		-> Full Scan같은 현상이 일어난다 -->
+
+<!-- ----------------------------------------------------------- -->
+
+<!-- 사용자 정의 속성 -->
+<!-- 	HTML5에서 추가된 표준 속성 -->
+
+<!-- 	개발자가 원하는 의미를 가진 속성을 만들 때 사용한다 -->
+
+<!-- 	"data-"로 시작하는 속성을 직접 정의해서 사용하면 된다 -->
+
+<h1 class="content" data-index="1" data-type="text">첫번째</h1>
+
+<h1 class="content" data-index="2" data-type="number">22222</h1>
+
+<h1 class="content" data-index="3" data-type="text">세번째</h1>
+
+<h1 class="content" data-index="4" data-type="number">44444</h1>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

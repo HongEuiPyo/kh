@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$("document").ready(function(){
+	
+	//입력창에 focus이벤트 발생시키기 -> 최초 입력위치 조절
+	$("input[name~='msg']").focus();
+	
+	//--------------------------------------------------
+	
+	
+	
+	// 버튼에 click 이벤트 생성
+	$("#btnSend").on("click", function() {
+// 		console.log("CLICKED")
+
+// 		alert("입력 메시지 : " + $("input[name~=msg]").val())		
+// 		$("input[name~='msg']").val("");
+// 		$("input[name~='msg']").focus();	
+
+		alert("입력 메시지 : " + $(this).prev().val())		
+		$(this).prev().val("");//input의 입력값 지우기
+		$(this).prev().focus();//input에 포커스 주기
+
+	//--------------------------------------------------
+	
+	$("input[name~='msg']").keydown(function( e ){
+		console.log("keydown")
+		console.log(event.keyCode)	//JS 스타일
+		console.log( e.keyCode )	//jQuery 스타일
+		
+		if(e.keyCode == 13) {
+			console.log("enter key")
+			
+			//#btnSend에 클릭이벤트 발생시키기
+			$("#btnSend").click()
+			
+			if( $(this).val() =="") {
+				alert("[WARNING] 내용을 입력하세요")
+				return;
+			})
+		}
+		
+	})
+	
+		
+	})
+	
+
+	
+
+	
+})
+
+</script>
+</head>
+<body>
+
+
+
+
+
+<div>
+	<input type="text" name="msg" />
+	<button id="btnSend">전송</button>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

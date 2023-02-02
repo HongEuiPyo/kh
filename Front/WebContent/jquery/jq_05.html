@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	//전체 p태그에 테두리 씌우기
+	$("p").css("border", "1px solid #ccc")
+	//-------------------------------------------
+	
+	$("p").each(function() {
+	
+		console.log( $(this).is( $("#stop")))
+		
+			
+		//---------------------------------------------
+		
+		if($(this).is($("stop"))) {
+			return false; //함수 중단
+		}
+		$(this).css("background", "tomato")
+		
+	})
+	
+	//--------------------------------------------------
+	
+	//div태그의 자손(하위) 중에서 #stop을 찾아 반환한다
+	console.log( $("div").find("#stop"))
+	
+	console.log( $("div #stop"))
+})
+</script>
+
+</head>
+<body>
+
+<div>
+	<span>하나</span>
+	<p>둘</p>
+	<pre>셋</pre>
+	<p id="stop">넷</p>
+	<p>다섯</p>
+	<p id="stop">SIX</p>
+</div>
+
+</body>
+</html>

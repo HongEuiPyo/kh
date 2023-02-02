@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>form 태그</h1>
+<h3>input태그의 type속성</h3>
+<hr>
+
+<form action="" method="get">
+
+<!-- id속성 : HTML문서 내에서 태그에 고유한 이름을 붙여주는 속성 (식별값) -->
+<!-- name속성 : form태그를 이용하여 서버로 전달하는 요청파라미터의 변수명으로 사용하는 속성 -->
+
+<!-- 일반적으로, id속성과 name속성에 설정한 값은 같은 문자열을 사용한다 -->
+
+
+<label>
+아이디 <input type="text" name="userid" id="uid"
+	placeholder="아이디를 입력하시오" size="15" value="기본값" /><br>
+</label>
+
+
+<label for="upw">패스워드</label>
+<input type="password" name="userpw" id="upw"
+	placeholder="비밀번호 입력" value="data" />
+
+<hr>
+
+<label for="chk1">체크1</label>
+<input type="checkbox" name="chk" id="chk1" value="A" />
+|
+<label for="chk2">체크2</label>
+<input type="checkbox" name="chk" id="chk2" value="B" />
+|
+<label for="chk3">체크3</label>
+<input type="checkbox" name="chk" id="chk3" value="C" checked="checked" />
+
+<!-- checkbox를 선택(check)하지 않고 전송하면 전달파라미터가 아예 생성되지 않는다 -->
+<!-- 같은 name의 checkbox가 여러 개 있으면 각각의 항목을 중복되게 "변수=값"으로 전달한다 -->
+
+<!-- checkbox에 value속성이 적용되어있지 않으면 "on" 값을 전달한다 -->
+<!-- checkbox에 value속성이 적용되어있으면 적용된 값을 전달한다 -->
+
+<!-- checked="checked" 속성을 부여하면 기본 상태를 체크된 상태로 지정할 수 있다 -->
+
+<br><br>
+
+<hr>
+<label><input type="radio" name="gender" value="m" /> 남</label>
+<label><input type="radio" name="gender" value="f" /> 여</label>
+<label><input type="radio" name="gender" value="o" checked="checked" /> 기타</label>
+
+<!-- radio는 checkbox와 비슷한 동작을 한다 -->
+<!-- 선택항목이 없으면 전달파라미터가 만들어지지 않는다 -->
+
+<!-- 선택한 항목의 value값을 전달한다 -->
+<!-- value속성이 없으면 "on"값을 전달한다 -->
+
+<!-- 같은 name을 가진 radio들은 같은 라디오그룹(radio group)이 된다 -->
+<!--  -> 같은 라디오그룹에서는 한 개의 radio만 선택할 수 있다(중복선택 불가) -->
+
+<br><br>
+
+<hr>
+<!-- 일반 버튼 -->
+<input type="button" value="확인" />
+<br>
+
+<input type="button" value="알림창" onclick="alert('알림! 클릭됐습니다');" />
+
+<hr>
+
+<!-- submit버튼 : form태그에 작성된 데이터를 서버로 전송한다 -->
+<!-- reset버튼 : 작성된 데이터들을 초기화한다 (기본값으로 되돌림) -->
+
+<input type="submit" value="submit버튼 - 제출" />
+<input type="reset" value="reset버튼 - 초기화" />
+
+<hr>
+
+<!-- <button>태그는 일반 버튼으로 만들어지지않는다 -->
+<!-- <input type="submit" /> 버튼으로 만들어진다 -->
+
+<!-- 일반 버튼으로 만들려면 type="button"을 부여한다 -->
+
+<button>submit버튼</button>
+
+<button type="button">일반 버튼</button>
+
+<hr>
+
+<!-- 파일 선택창 (단일) -->
+<input type="file" name="f" />
+<br>
+
+<!-- 파일 선택창 (다중) -->
+<input type="file" name="f_multi" multiple="multiple" />
+
+<br><br>
+
+<hr>
+<input type="submit" value="전송" />
+
+<hr>
+
+<!-- HTML5 부터 추가된 type -->
+
+
+<!-- NUMBER : 숫자만 입력 가능 -->
+NUMBER
+<input type="number" name="n" min="1" max="100" step="5" value="51" />
+
+<hr>
+
+<!-- RANGE : 범위값 표현 -->
+<!-- 기본 범위는 0~100 -->
+RANGE
+<input type="range" name="r" min="100" max="1000" step="100" value="800"/>
+
+<hr>
+
+<!-- EMAIL : 이메일주소형식의 유효성 검사 -->
+<!-- "텍스트@텍스트" 형태로 작성되었는지 검증한다 -->
+EMAIL
+<input type="email" name="e" />
+
+<hr>
+
+<!-- URL : URL형식의 유효성 검사 -->
+<!-- "프로토콜://도메인" 형태인지 검증한다 -->
+URL
+<input type="url" name="u" />
+
+<hr>
+<!-- 컬러 피커, Color Picker -->
+<!-- RGB색상값을 전달한다 -->
+COLOR
+<input type="color" name="c" />
+
+<hr>
+
+<!-- 날짜 피커, Date Picker -->
+<!-- "yyyy-mm-dd" 형식의 날짜데이터를 전달한다 -->
+DATE
+<input type="date" name="d" />
+
+<hr>
+
+<!-- 시간 피커, Time Picker -->
+<!-- "hh24:mi" 형식의 시간데이터를 전달한다 -->
+TIME
+<input type="time" name="t" />
+
+
+</form>
+
+
+
+<!-- Self-Closing Tag -->
+<!-- 	-> 닫는 태그를 두지 않고 여는 태그의 마지막 > 앞에 /를 적어 태그 자체닫기를 적용한다 -->
+<!-- <input /> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

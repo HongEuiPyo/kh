@@ -1,0 +1,152 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	font-family: Arial;	
+	background: #eee;
+}
+
+.cards {
+	margin: 0 auto;
+	max-width: 1000px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 20px;
+	font-family: Arial;
+}
+
+.card {
+	box-shadow: 2px 2px 10px black;
+	height: 500px;
+}
+
+.card_image {
+	display: block;
+	overflow: hidden; 
+	width: 230px;
+	height: 300px;
+	align-self: center;
+
+}
+
+.card_image img{
+	width: 100%;
+	padding: 5px;
+}
+
+.card_title {
+	text-align: center;
+	padding: 5px;
+/* 	font-size: calc(4vw + 4vh + 2vmin); */
+	font-size: 1.4vw !important;
+}
+
+.card_desc {
+	padding: 4px;
+	line-height: 2.5ex;
+	height: 7.5ex; 
+	overflow: hidden;
+/* 	font-size: calc(4vw + 4vh + 2vmin); */
+	font-size: 0.9vw;
+}
+
+.card_desc p {
+    height: 60px;
+    overflow: hidden;
+}
+
+.card_desc > p:first-of-type {
+	margin-top: 0;
+}
+.card_desc > p:last-of-type {
+	margin-bottom: 0;
+}
+
+.card_info {
+	padding: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #eee;
+	font-size: 0.8em;
+    box-shadow: inset 0px 0px 0px 5px white;
+    bottom: 0px;
+    position: absolute;
+    width: -webkit-fill-available;
+}
+
+.card_info i {
+	font-size: 0.9em;
+	margin-right: 8px;
+}
+
+.card_link {
+	color: teal;
+	text-decoration: none;
+}
+
+.card_link:hover{
+	text-decoration: underline;
+}
+
+.search-bar {
+	position: absolute;	
+	display: inline-block;
+	left: 50%;
+	top: 100px !important;
+	transform: translateX(-50%);
+	width: 80%;
+	max-width: 500px;
+	height: 48px;
+	background: #fff;
+	border-radius: 4px;
+	box-shadow: 2px 2px 10px black;
+	overflow: hidden;
+}
+
+#search  {
+	position: absolute;
+	transform: translateX(-50%);
+	width: 250px;
+	height: 40px;
+	left: 205px;
+	margin: 4px 0;
+	border: 0px;
+	border-radius: 0px;
+	outline: 0;
+	box-sizing: border-box;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#btnSearch  {
+	position: absolute;
+	right: 6px;
+	border: none;
+	color: black;
+	width: 50px;
+	height: 40px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+#category {
+	position: absolute;
+	left: 0px;
+	height: 40px;
+	margin: 4px;
+}
+
+#btnwrite {
+	left: calc(50% + 425px);
+	position: fixed;
+}
+
+.highlight {
+  background-color: yellow !important;
+}

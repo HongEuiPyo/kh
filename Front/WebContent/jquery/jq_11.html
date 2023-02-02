@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	console.log( $("div").attr("class") )
+	
+	$("div").attr("class", "st4")
+	
+	//	-> 속성의 값이 전부 변경된다
+	//	-> 단어마다 의미를 가지는 class속성을
+	//	-> attr()함수로 변경할 때에는 주의할 것!
+	
+	//-----------------------------------------
+	
+	$("div").attr("id", "myDiv")
+	
+	//-----------------------------------------
+	
+	$("div").attr("style", "width:200px; height: 300px; !important")
+	//	-> style속성의 값이 전부 변경된다
+	//	-> 스타일 적용에는 attr()보다 css()가 좋다
+	
+	//	-> !important를 적용하려면 attr()을 사용한다
+	
+	//----------------------------------------
+	
+	$("p").eq(1).attr({
+		"a": "1"
+		, "b" : "2"
+		, "title" : "테스트"
+	})
+	
+	//----------------------------------------
+	
+	//임베디드 방식으로 스타일 시트 적용하기
+	$("p").addClass("red")
+	
+	$("p").eq(0).addClass("blue")
+	
+	$("p").eq(1).removeClass("red")
+	
+	//class속성값 전부 제거
+	$("p[clss]").removeClass()
+	
+})
+
+
+</script>
+
+<style type="text/css">
+.red {
+	color: red;
+}
+</style>
+
+</head>
+<body>
+
+<div class="st1 st2 st3"
+style="width: 300px; height:200px; border: 1px solid red;">
+
+	<p>하나</p>
+	<p>둘</p>
+	<p>셋</p>
+
+</body>
+</html>

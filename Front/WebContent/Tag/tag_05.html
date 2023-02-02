@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>하이퍼링크 태그</h1>
+<h3>a</h3>
+<hr>
+
+<a href="https://www.google.co.kr">구글로 이동</a>
+
+<!-- HTML 태그의 속성은 반드시
+	속성이름="속성값"
+	의 형식으로 적어야한다 -->
+
+<!-- 속성의 값은 문자열로 적어야한다 -->
+<!-- 속성의 값으로 지정할 수 있는 형식은 속성마다 다르다 -->
+<!-- HTML 문서에서 문자열은 ""큰따옴표 또는 ''작은따옴표 둘 다 가능하다 -->
+
+<br><br>
+
+<a href="https://www.google.co.kr" target="_blank">구글로 이동 (새 탭)</a>
+<br>
+
+<a href="https://www.google.co.kr" target="_self">구글로 이동 (현재 탭)</a>
+
+<hr>
+
+<div id="top"><h1>여기가 TOP!!</h1></div>
+
+<a href="#bottom">밑으로</a>
+
+
+<hr>
+
+<!-- 도메인주소를 포함한 URL을 절대경로 URL이라고 한다 -->
+
+<a href="https://www.naver.com/">네이버</a>
+
+<a href="https://iei.or.kr/recruit/collaborate.kh">KH - 협력기업List</a>
+
+<hr>
+<!-- 도메인주소를 생략한 URL을 상대경로 URL 이라고 한다 -->
+<!-- 	-> 현재 도메인주소를 기준점으로 URL경로가 지정된다 -->
+
+<!-- 	-> 같은 사이트 내에서 페이지를 이동할 때 사용한다 -->
+
+<ul>
+	<li><a href="/Front/Tag/tag_01.html">하나</a></li>	
+	<li><a href="./tag_02.html">둘</a></li>	
+	<li><a href="tag_03.html">셋</a></li>	
+	<li><a href="/Users/의표/Desktop/KakaoTalk_20210817_174337856.jpg">넷</a></li>
+	
+</ul>
+
+<a href="#top">TOP으로</a>
+
+<div id="bottom"><h1>여기가 BOTTOM!!</h1></div>
+
+<hr>
+
+<!-- href 속성값으로 '#'만 지정하면 자기 자신페이지를 나타낸다 -->
+<!-- 새로고침된다 -->
+<a href="#">자기 자신 페이지</a>
+
+
+
+<!-- 상대경로 지정 문자 -->
+
+<!-- / : 루트 디렉토리 (WelContent 폴더) -->
+
+<!-- ./ : 현재 디렉토리 -->
+<!-- **파일명으로 시작하면 ./ 와 같다 -->
+
+<!-- ../ : 부모 디렉토리 -->
+
+</body>
+</html>

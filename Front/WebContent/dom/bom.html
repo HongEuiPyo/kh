@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+//전역변수
+var data = 123;
+console.log( data );
+
+//전역변수는 window 객체에 등록되어있다
+console.log( window.data )
+
+//-----------------------------------
+
+//window객체에는 각종 내장함수들이 등록되어있다
+
+//팝업창을 띄우는 함수 - open()
+//	window.open( url, name, option ) : windowid
+
+// window. 생략가능
+// window.open("https://www.naver.com/", "네이버")
+
+// open("https://www.naver.com/", "네이버")
+
+// "_self" - 현재창
+// open("https://www.naver.com/", "네이버", "_self")
+
+// "_blank" - 새창
+// open("https://www.naver.com/", "네이버", "_blank")
+
+
+open("https://www.naver.com/", "네이버", "width=300, height=200, top=100, left=1500")
+
+//-----------------------------------
+
+console.log("--- navigator ---")
+
+//브라우저 + 운영체제의 정보 속성
+console.log( navigator.userAgent )
+
+//언어권 정보, Locale 정보
+console.log( navigator.language )
+
+//브라우저 벤더, 배포 회사
+console.log( navigator.vendor )
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

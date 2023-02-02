@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	
+	//<img> 요소노드 생성하기
+	var img = document.createElement("img")
+	console.log(img)
+	
+	//<img>태그의 고유 속성
+	//	src, width, height, alt, ...
+	
+	//전역(Global) 속성
+	//	id, class, style, title, ...
+	
+	//--------------------------------------------------
+	
+	//태그의 속성은 DOM객체의 property로 등록된다
+	img.src = "../resources/img/mi.jpg"
+	img.width = "300"
+	img.height = "200"
+	
+	//<body>태그에 <img>태그 추가하기
+	//	-> 화면에 이미지가 보이도록 한다
+	document.body.appendChild( img )
+
+	//--------------------------------------------------
+	
+	console.log("--- 속성값 가져오기 -------")
+	console.log( img.src )
+	console.log( img.width )
+	console.log( img.height )
+	
+	//--------------------------------------------------
+	
+	//속성값을 지정하는 함수
+	//	-> 비표준도 가능
+	img.setAttribute("id", "apple")	//표준속성
+	img.setAttribute("myAttr", "test") //비표준속성
+	
+	//비표준 속성은 DOM객체의 property로 등록되지 않는다
+	console.log(img.myAttr) //undefined
+	
+	//--------------------------------------------------
+	
+	//표준속성
+	console.log( "id :", img.getAttribute("id") )
+	
+	//비표준속성
+	console.log( "myAttr :", img.getAttribute("myAttr") )
+	
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

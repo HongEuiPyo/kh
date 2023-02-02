@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+table, th, td {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+</style>
+
+
+</head>
+<body>
+
+<h1>테이블 태그</h1>
+<h3>colspan, rowspan 속성</h3>
+<hr>
+
+<table>
+<tr>
+	<td>1x1 셀</td>
+	<td>1x2 셀</td>
+	<td rowspan="3">1x3 셀</td><!-- rowspan : 행확장 -->
+</tr>
+<tr>
+	<td>2x1 셀</td>
+	<td>2x2 셀</td>
+	<td>2x3 셀</td><!-- 옆으로 밀려남 -->
+</tr>
+<tr>
+	<td colspan="2">3x1 셀</td><!-- colspan : 열확장 -->
+</tr>
+</table>
+
+
+</body>
+</html>

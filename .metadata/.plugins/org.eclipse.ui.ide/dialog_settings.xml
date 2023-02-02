@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jst.servlet.ui.project.facet.WebProjectWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.wst.web.ui"/>
+		</list>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\ant19\Desktop\Grasshopper"/>
+			<item value="C:\Users\ant19\Desktop\KHsemiProject1-master"/>
+			<item value="C:\workspace\Grasshopper_20211017"/>
+			<item value="C:\Users\ant19\Documents\kh\서블릿 게시판 문제 풀이\서블릿 게시판_완료\Board"/>
+			<item value="C:\Users\ant19\Documents\kh\서블릿 게시판 문제 풀이\서블릿 게시판_06_글삭제 풀이\글삭제_02_풀이\Board_Delete"/>
+			<item value="C:\Users\ant19\Documents\kh\서블릿 게시판 문제 풀이\서블릿 게시판_05_글수정 풀이\글수정_02_풀이\Board_Update"/>
+			<item value="C:\Users\ant19\Documents\kh\서블릿 게시판_04_글쓰기 풀이\글쓰기_05_기본\Board_Write_Basic"/>
+			<item value="C:\Users\ant19\Documents\kh\서블릿 게시판_01_목록 풀이\목록_02_기본\Board_List_Basic"/>
+			<item value="C:\Users\ant19\Documents\kh\서블릿 게시판_04_글쓰기 풀이\글쓰기_07_에디터\Board_Write_Editor"/>
+			<item value="C:\Users\ant19\Documents\kh\글쓰기_06_첨부파일\Board_Write_File"/>
+			<item value="C:\Users\ant19\Documents\kh\서블릿 게시판_03_로그인 풀이\로그인_08_풀이\Board_Login"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="CleanDialogSettings">
+		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="DIALOG_WIDTH" value="581"/>
+		<item key="DIALOG_HEIGHT" value="432"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+</section>

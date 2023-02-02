@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>쿠키 확인</title>
+<script type="text/javascript">
+	console.log(document.cookie);	//쿠키 확인
+	
+	function getCookie(name){
+		
+		var cookies = document.cookie.split(';');
+		console.log(cookies);
+		
+		for(var i in cookies) {
+			cookies[i].indexOf(name) > -1 {
+				alert('다시 방문해 주셔서 감사합니다.');
+			}
+		}
+		
+		getCookie('ABCcorp');
+		
+		/*
+		for(var i=0; i<cookies.length; i++) {
+			반복할 일
+			cookies[i]....
+		}
+		*/
+		
+	}
+	
+	getCookie('test');
+	
+</script>
+</head>
+
+<body>
+
+
+
+</body>
+</html>

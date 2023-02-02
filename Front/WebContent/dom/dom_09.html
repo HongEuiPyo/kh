@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+window.onload = function() {
+	
+	//선택자(selector)에 해당하는 요소들 중에서
+	//첫번째 한 개만 반환한다 (DOM객체)
+	var section = document.querySelector("#sections .section")
+	console.log( section )
+	
+	//선택자(selector)에 해당하는 요소들 모두 반환 (배열)
+	var sections = document.querySelectorAll("#sections .section")
+	console.log( sections )
+	
+	//-------------------------------------------------------------
+	
+	section.style.color = "red"
+	
+	for(var i=0; i<sections.length; i++) {
+		sections[i].style.background = "skyblue"
+	}
+	
+	
+	
+}
+</script>
+</head>
+<body>
+
+<ul id="sections">
+	<li class="section">Apple</li>
+	<li class="section">Banana</li>
+	<li class="section">Cherry</li>
+</ul>
+
+
+</body>
+</html>

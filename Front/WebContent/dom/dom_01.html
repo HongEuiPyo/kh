@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<script type="text/javascript">
+//--- 잘못된 DOM객체 사용법 ---
+//	-> 브라우저가 HTML문서는 한 줄씩 순서대로 해석한 이후
+//	 문서 객체를 파악하고 DOM트리가 구성된다
+
+//	-> document객체는 DOM트리를 기준으로 동작한다
+
+//	-> document객체를 제대로 사용하려면 DOM트리 완성 이후에
+//	 사용하여야 한다
+
+//id가 "header1"인 요소 노드를 얻어오기
+var h1 = document.getElementById("header1");
+
+//요소노드(DOM Object) 출력하기
+console.log( h1 ) //null
+</script>
+
+
+
+<script type="text/javascript">
+
+//load이벤트	- 요소나 객체가 메모리에 로드되었을 때
+//				 발생하는 이벤트
+
+//window.onload	- DOM트리 구성이 완료되었을 때
+//				 발생하는 이벤트
+//				-> HTML문서를 처음부터 끝까지 다 해석한 이후
+
+// DOM트리 구성이 완료된 이후에 함수를 호출할 수 있도록
+//대기 상태로 등록해놓는다
+window.onload = function() {
+	console.log("---window.onload 콜백함수---")
+	
+	var h1 = document.getElementById("header1")
+	console.log(h1)
+	
+	//---------------------------------------------------
+	
+	h1.style.color = "blue";
+}
+
+</script>
+
+
+
+<script type="text/javascript">
+function chgBgYellow() {
+	var h2 = document.getElementById("header2")
+	h2.style.backgroundColor = "yellow";
+}
+
+function chgBgNone() {
+	var h2 = document.getElementById("header2")
+	h2.style.background = "none";
+}
+</script>
+
+</head>
+<body>
+
+<h1 id="header1"
+ onmouseenter='console.log("enter");'
+ onmouseleave="console.log('leave');">HEADER TEXT</h1>
+
+<h1 id="header2"
+ onmouseenter="chgBgYellow();"
+ onmouseleave="chgBgNone();">헤더 텍스트</h1>
+
+
+<script type="text/javascript">
+console.log("---</body> 직전 수행---")
+
+var h1 = document.getElementById("header1")
+console.log(h1)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+
+/* class속성의 값이 abc인 요소 */
+h1 .abc{}
+
+/* class가 abc인  */
+h1.abc{}
+
+/* */
+h1#abc{}
+
+
+[title] { color:red; }
+
+/* class속성을 가진 div태그 요소 */
+div[class] { border: 1px solid green; }
+
+
+/* title속성의 값이 "greeting"인 h1 태그 요소 */
+/* (선택 대상 없음) */
+/*  -> 속성값의 정체 문장이 완전 일치해야 선택된다  */
+/* h1[title="greeting"] { border: 1px solid blue; } */
+h1[title="greeting message"] { border: 1px solid blue; }
+
+
+/* title속성의 값이 "greeting"이라는 단어를 포함하는 요소 */
+/* 	-> 띄어쓰기로 구분되는 온전한 단어가 필요함  */
+h1[title~="greeting"] { text-decoration: underline; }
+
+/* class값이 "abc"로 완전 일치하는 h1태그 */
+/* (선택 대상 없음) */
+/* 	->h1.abc 와는 다른 동작 */
+h1[class="abc"] { background: yellow; }
+
+h1[class~="abc"] { border: 1px solid tomato;}
+
+
+
+h1[class^="te"] { font-size: 100px }
+
+h1[class$="st"] { color: tomato; }
+
+h1[class*="d"] { background: tomato; }
+
+h1[class|="abc"] { font-size: 60px;}
+
+
+
+</style>
+
+</head>
+<body>
+
+<h1 class="abc text dd">Hello</h1>
+
+<h1 class="abc st">안녕하세요</h1>
+
+<h1 class="abc-css" title="greeting message">반가워요!</h1>
+
+<div class>여기는 DIV!</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+div {	width: 200px; height: 100px; }
+
+#div1 {	border: 1px solid red;}
+#div2 {	border: 1px solid green;}
+#div3 {	border: 1px solid blue;}
+
+#div1 {	float: left; }
+#div2 { float: right; }
+
+.clearfix {
+	clear: both;
+	
+	/* 컨텐츠 영역 없애기 */
+	width: 0;
+	height: 0;
+	
+	/* 넘쳐서 흘러나온 내용물을 보이지 않게 설정한다 */
+	overflow: hidden;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="div1">DIV1 요소</div>
+
+<div id="div2">DIV2 요소</div>
+
+<div class="clearfix"></div>
+
+<div id="div3">DIV3 요소</div>
+
+</body>
+</html>
+
+

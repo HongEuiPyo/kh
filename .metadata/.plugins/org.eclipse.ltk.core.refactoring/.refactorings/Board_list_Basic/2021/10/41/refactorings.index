@@ -1,0 +1,11 @@
+1633312166829	Rename package 'common'
+1633324054460	Move 'footer.jsp' to 'layout'
+1633324066696	Move 'list.jsp' to 'layout'
+1633324087203	Move 'layout.jsp' to 'layout'
+1633324093016	Move 'paging.jsp' to 'board'
+1633324149665	Move 'paging.jsp' to 'layout'
+1633324152332	Move 'list.jsp' to 'board'
+1633324376745	Rename package 'wweb.common'
+1633324968397	Copy package
+1633324988709	Copy file
+1633520873524	Delete element

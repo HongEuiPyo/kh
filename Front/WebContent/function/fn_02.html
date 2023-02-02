@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+//JS함수 작성방법
+// function 함수이름(매개변수1, 매개변수2, ...) {
+// 	//실행코드
+	
+// 	return 반환값;
+// }
+
+// **매개변수의 데이터타입과 반환데이터타입을 명시하지 않는다
+
+//--------------------------------------------------------------
+
+//JS함수 호출코드
+// var res = 함수이름(전달인자1, 전달인자2, ...)
+
+//--------------------------------------------------------------
+
+// 함수 정의
+function hello() {
+	console.log("hello")
+}
+
+//함수의 이름을 변수에 저장할 수 있다
+var f = hello;
+
+f();
+
+console.log("----------")
+
+//함수 호출결과를 변수에 저장 ( hello()함수 호출 결과를 res에 저장)
+var res = hello();
+
+console.log( res ) //반환값 없음, undefined
+
+if( !res ) {
+	console.log("반환값 없음")
+}
+
+console.log("----------")
+
+var func = function(data1, data2) {
+	console.log( data1, ":", data2 )
+	
+	return data1 + data2;
+}
+
+var result = func(10, 20);
+
+console.log("--- 덧셈 결과 ---")
+console.log( result )
+
+console.log("----------")
+
+var result2 = func("Alice", 100)
+console.log( result2 )
+
+console.log("----------")
+
+var result3 = func(undefined, undefined)
+console.log( result3 ) //NaN (undefined+undefined)
+
+console.log("----------")
+
+var result4 = func(11111)
+console.log( result4 ) //NaN (11111+undefined)
+
+console.log("----------")
+
+var result5 = func(1, 2, 3, 4, 5)
+console.log( result5 ) //3 ( 1+2 )
+
+//매개변수의 개수보다 많은 전달인자는 무시된다
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

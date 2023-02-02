@@ -1,0 +1,148 @@
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+	list-style: none;
+	text-decoration: none;
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+	color: #000;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
+h1 {
+	font-size: 48px;
+	font-weight: 100;
+}
+
+.contents1 {
+	font-size: 20px;
+	font-weight: lighter;
+}
+
+.contents3 {
+	font-size: 14px;
+	font-weight: 100;
+}
+
+.contents_bold {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.result {
+	font-size: 24px;
+}
+
+.wrap {
+	background-image: url('/resources/img/cheers02.jpg');
+	background-repeat: repeat;
+	background-position: top;
+  	background-size: 2000px 900px;
+  	min-height: 100%;
+  	margin-bottom: -125px;
+}
+.wrap:after {
+  content: "";
+  display: block;
+  height: 125px; 
+}
+
+.header {
+	top: 0;
+	display: flex;
+	width: 100%;
+	margin: auto;
+	height: 86px;
+	background: rgba(0, 0, 0, 0.6);
+	position: fixed;
+}
+
+.header_logo {
+	margin-top: -10px;
+	margin-left: 95px;
+	position: absolute;
+}
+
+.login {
+	color: #fff;
+}
+
+.login>form>button {
+	color: #fff;
+	background: blue;
+	border: none;
+	font-size: 16px;
+	margin-top: 25px;
+	margin-left: 110px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.join {
+	color: #fff;
+}
+
+.join>button {
+	color: #fff;
+	background: red;
+	border: none;
+	font-size: 16px;
+	margin-top: 25px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-evenly;
+	line-height: 86px;
+	width: calc(1280px - 400px);
+	/*  	margin-right: - 84px; */
+	padding-left: 0;
+	margin-left: 290px;
+	/*  	position: relative; */
+}
+
+
+
+
+.nav>li>a {
+	color: #fff;
+}
+
+.nav>li>a:hover {
+	color: orange;
+}
+
+.content_area {
+	width: 1280px;
+	min-height: calc(100vh - 165px);
+	height: auto;
+	background-color: rgba(255, 255, 255, .7);
+	margin: auto;
+}
+
+footer {
+	background: #1f1f1f;
+	padding: 30px;
+	align-items: center;
+	height: 125px; 
+}
+
+footer>div:first-child {
+	flex: 3;
+	text-align: center;
+	color: #fff;
+}
+
+footer>div:last-child {
+	flex: 9;
+	color: #fff;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+/* span태그의 앞에 가상 요소를 추가한다 */
+/* span::before { */
+span::after {
+
+/* 	가상 요소에 적용될 컨텐츠(내용물) */
+	content: "span \A before\A";
+	
+/* 	\A - 개행문자 */
+/* 	(처음에는 적용되지 않는다) */
+
+/* 	공백문자를 처리하는 방식 지정한다 */
+	white-space: pre;
+	
+/* 	가상요소에 CSS스타일 적용 */
+	color: orange;
+	background-color: gray;
+
+}
+
+</style>
+
+</head>
+<body>
+
+<p class="new">첫 번째(p)</p>
+<span>두 번째(span)</span>
+<div class="new">세 번째(div)</div>
+<p class="test">네 번째(p). This is a p Tag. This is a p Tag. This is a p Tag.
+이름과,				별을 강아지,<br>
+
+
+
+거외다. 다 내일 청춘이 무덤 비둘기,
+ 내 버리었습니다.	소학교 추억과 하나의 새워 잠, 
+ 동경과 별들을 밤을 까닭입니다. 가을 위에도 그리워 봅니다. 
+
+</body>
+</html>

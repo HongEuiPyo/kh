@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+console.log( 50 )
+console.log( "50" )
+
+console.log( parseInt("50"))	//"50" -> 50
+console.log( parseInt("123HI"))	//"123HI" -> 123
+console.log( parseInt("HI123")) // "HI123" -> NaN (Not a Number)
+console.log( parseInt("456HI123")) // "456HI123" -> 456
+
+console.log("---------")
+
+console.log( parseFloat("123.456"))	//123.456
+console.log( parseInt("123.456"))	//123
+
+console.log( Number("123.456"))	//123.456
+console.log( Number("776"))		//776
+
+var n1 = 567.89;
+
+console.log( n1.toString() )//"567.89"(10진수)
+
+console.log("---진법변환---")
+console.log( n1.toString(2))	//2진수
+console.log( n1.toString(8))	//8진수
+console.log( n1.toString(16))	//16진수
+
+console.log("--소수부 자릿수 지정--")
+console.log( n1.toFixed(1)) //소수점 1자리 유지
+console.log( n1.toFixed(5))	//소수점 1자리 유지
+
+console.log( String(1234))
+console.log( String(123.4567))
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

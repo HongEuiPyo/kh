@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+window.onload = function () {
+
+//요소 노드 생성하기 - <h1>
+var h = document.createElement("h1");
+console.log( h );
+
+//텍스트 노드 생성하기 - "Hello DOM"
+var text = document.createTextNode("Hello DOM");
+console.log( text );
+
+//h1요소노드에 텍스트노드를 자식으로 추가하기
+h.appendChild( text )
+
+document.body.appendChild( h );
+
+	//document.body
+	//	->	<body>태그 요소노드를 표현하는 예약 키워드
+
+
+}
+
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

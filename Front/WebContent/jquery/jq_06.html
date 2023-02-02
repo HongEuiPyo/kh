@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	console.log("--- $('div').children() ---")
+	console.log( $('div').children() )
+	
+	console.log("--- $('div').children().children() ---")
+	console.log($('div').children().children())
+	
+	console.log("--- $('div').children().children('#third') ---")
+	console.log($('div').children().children('#third'))
+	//------------------------------------------------
+	
+	console.log("-----------")
+	console.log( $("#here"))
+	
+	console.log( $("#here").parent())
+	
+	console.log("-----------")
+	console.log( $("#here").parents())
+	
+	console.log( $("#here").parents("#third"))
+	
+	console.log("-----------")
+	console.log( $("#third").prev())
+	console.log( $("#third").prevAll())
+	//-------------------------------------------------
+	
+	//#here에 클릭 이벤트 처리 코드 등록
+	$("#here").click(function() {
+		$(this).parent().parent().next().css("color", "red")
+	})
+	
+})
+
+</script>
+</head>
+<body>
+
+<div>
+<ul>
+	<li>하나</li>
+	<li>둘</li>
+	<li id="third">
+		셋
+		<ul>
+			<li>3-1</li>
+			<li id="here">3-2</li>
+			<li>3-3</li>
+		</ul>
+	</li>
+	<li>넷</li>
+	<li>다섯</li>	
+</ul>
+</div>
+
+
+</body>
+</html>

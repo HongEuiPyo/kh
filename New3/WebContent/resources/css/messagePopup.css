@@ -1,0 +1,58 @@
+.popupOpen1 {
+	cursor: pointer;
+}
+
+.popupWrap1 {
+	z-index: 99999;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.popupWrap1 .popup1 {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -200px;
+	width: 400px;
+	height: 400px;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 0 10px;
+}
+
+.popupWrap1 div textarea {
+	width: 100%;
+	padding: 0;
+}
+
+.popupWrap1 div .title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.popupWrap1 div .title p {
+	line-height: 50px;
+	margin: 0;
+}
+
+.hide1 {
+	display: none;
+}
+
+.btnWrap1 {
+	text-align: right;
+}
+
+.btnWrap1 button {
+	border-radius: 5px;
+	background-color: rgb(104, 122, 204);
+	color: #fff;
+	border: none;
+	padding: 10px;
+}

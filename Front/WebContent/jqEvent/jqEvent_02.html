@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+// 	$("#btnOk").on("mouseenter", sayHi)
+// 	$("#btnOk").on("click", red)
+// 	$("#btnOk").on("mouseleave", blue)
+
+	$("#btnOk").on({
+		"mouseleave" : blue
+		,"mouseenter" : red
+		,"click" : sayHi})
+
+
+	//---------------------------------------
+	
+	$("#btnAlert").one({
+		"click" : sayHi
+		, "mouseenter" : red
+		, "mouseleave" : blue
+	})
+	
+	//---------------------------------------
+	
+	$("button").off("click")
+	
+	//---------------------------------------
+	
+	$("#btnOk").mouseover(function() {
+		console.log("mouseover")
+	})
+
+
+	
+})
+	
+	
+function sayHi() {
+	console.log('hi')
+}
+
+function red() {
+	$(this).css("color", "red")
+}
+
+function blue() {
+	$(this).css("color", "blue")
+}
+
+</script>
+
+</head>
+<body>
+
+<div>
+	<button id="btnOk">확인</button>
+	<button id="btnAlert">알림</button>
+
+</div>
+
+</body>
+</html>

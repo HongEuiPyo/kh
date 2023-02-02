@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	//새로운 <div>객체 생성하기
+	var $div = $("<div>")
+	console.log( $div )
+	
+	//#myDiv노드 선택하기
+	var $myDiv = $("#myDiv")
+	console.log( $myDiv )
+	
+	//#myDiv의 자식으로 새로운 <div>노드를 추가한다
+	$myDiv.append( $div )
+	
+	// .html() -> .innerHTML 속성을 지정한다
+	$div.html("새로 만든 DIV")
+	
+	//--------------------------------------------------
+	
+	var $newDiv =
+	$("<div>")
+		.append( $("<ul>")
+				.append($("<li>").html("하이"))
+				.append($("<li>").html("헬로"))) 
+		.append( $("<ul>")
+				.append( $("<li>").html("HI"))
+				.append( $("<li>").html("HELLO")));
+	
+	console.log("--- $newDiv ---")
+	console.log( $newDiv )
+	
+	//#myDiv에 새로운 $newDiv추가하기 - 화면에 보임
+	$myDiv.append( $newDiv )
+	
+	//---------------------------------------------------
+	
+	//$newDiv의 복사본 생성하기
+	var $cloneDIv = $newDiv.clone()
+	console.log( $cloneDiv )
+	
+	//<body>태그에 $cloneDiv 추가하기
+	$( document.body ).append( $coneDiv )
+	
+	//---------------------------------------------------
+	
+	// document.body	-> JS스타일로 <body>태그를 표현한 키워드
+	
+	// $(document.body) -> document.body를 jQuery DOM 객체로 변환
+	
+})
+</script>
+
+</head>
+<body>
+
+<div id="myDiv">
+	<p>안녕!</p>
+</div>
+
+</body>
+</html>

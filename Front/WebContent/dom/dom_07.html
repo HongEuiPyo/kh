@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+window.onload = function() {
+// 	#myForm 객체 얻기
+	var form = document.getElementById("myForm")
+	console.log( form )
+	
+	var data1 = document.getElementsByName("data1")
+	console.log(data1) //배열
+	console.log(data1[0]) //DOM객체
+	
+	//form객체의 자식인 data1[0] 객체 제거하기
+	form.removeChild( data1[0] )
+	
+	//--------------------------------------------
+	
+	var data2 = document.getElementsByName("data2")
+	console.log(data2[0])
+	
+	data2[0].value = "TEST" //input태그의 입력값 넣기
+	
+	if( !data2[0].value =='' ) {	
+		//입력값이 없을 때
+	} else if( data2[0].value !='') {
+		//입력값이 있을 때
+	}
+	
+	//--------------------------------------------
+	
+	//라디오 버튼 - 배열
+	var r = document.getElementsByName("r")
+	console.log( r )
+	
+	//선택항목 지정하기
+	r[1].setAttribute("checked", "chedcked")
+	
+	//--------------------------------------------
+	
+	//체크 박스 - 배열
+	var c = document.getElementsByName("c")
+	console.log(c)
+	
+	for( var i=0; i<c.length; i++) {
+		c[i].setAttribute("checked", "checked")
+	}
+	
+}
+</script>
+
+</head>
+<body>
+
+<form action="#" method="get" id="myForm">
+	<input type="text" name="data1" /><br>
+	<input type="text" name="data2" /><br>
+	
+	<input type="radio" name="r" value="A" />
+	<input type="radio" name="r" value="B" />
+	<input type="radio" name="r" value="C" />
+	<br><br>
+	
+	<input type="checkbox" name="c" value="E" />
+	<input type="checkbox" name="c" value="F" />
+	<input type="checkbox" name="c" value="G" />
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>함수 - 쿠키생성</title>
+<script>
+	function setCookie(name, value, day) {
+		var date = new Date();		//현재 날짜 지정.
+		date.setDate(date.getDate() + day);
+		
+		var mycookie = '';
+		mycookie += name + '=' + value + ';';
+		mycookie += 'Expires=' + date.toUTCString();
+		
+		document.cookie = mycookie;	//쿠키 설정, 생성
+	}
+	
+	setCookie('ABCcorp', 'Main', 7);
+</script>
+
+
+</head>
+<body>
+
+
+
+
+</body>
+</html>

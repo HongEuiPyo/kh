@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+#wrap div:nth-child(1) { backround: #f00; }
+#wrap div:nth-child(2) { backround: #0f0; }
+#wrap div:nth-child(3) { backround: #00f; }
+#wrap div:nth-child(4) { backround: #ff0; }
+
+#wrap {
+	width: 600px;
+	border: 1px solid #ccc;
+	
+	/* 외부 정렬 (가운데) */
+	margin: 0 auto;
+	
+	/* <table>모델로 표현되도록 설정하기 */
+	display: table;
+	
+	/*자식 테이블셀의 너비를 균일비율로 만드는 설정 */
+	table-layout: fixed;
+}
+
+#wrap div {
+	/* <th>,<td>와 같은 테이블셀 모델로 표현되도록 설정 */
+	display: table-cell;
+/* 	width: 20%; */
+
+	/* 내부 정렬 */
+	text-align: center;
+	
+	height: 150px;
+	font-size: 60px;
+	
+	/*테이블 셀의 수직 정렬 (중간) */
+	vertical-align: middle;
+	/* baseline - 기본위치 */
+	/* bottom - 하단 */
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="wrap">
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
+	<div>D</div>
+</div>
+
+
+
+
+</body>
+</html>

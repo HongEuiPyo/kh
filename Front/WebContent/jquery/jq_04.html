@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<!-- jQuery 2.2.4 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	//p태그들 선택
+	var $p = $("p")
+	console.log( $p )
+	//-----------------------------------------------------
+	
+	//jQuery DOM객체로 반환하기
+	console.log("--- $p.eq(1)")
+	console.log( $p.eq(1))
+	
+	//JS DOM객체로 반환하기
+	console.log("--- $p.get(1)")
+	console.log( $p.get(1))
+	
+	//JS DOM객체로 반환하기
+	console.log("--- $p[1] ---")
+	console.log( $p[1] )
+	//-----------------------------------------------------
+	
+	var p = document.getElementsByTagName("p")
+	
+	console.log("--- p태그 jsDOM 배열 ---")
+	console.log( p )
+	
+	p[2].style.color="red"
+	
+	//JS객체 -> jQuery 객체 변환
+	var $p2 = $( p[2] )
+	
+	//jQuery 객체에 스타일 적용하기
+	$p2.css("border", "1px solid tomato")
+	
+	//------------------------------------------------------
+	
+	for( var i=0; i<$("p").length; i++ ) {
+		$("p").eq(i).css("background", "gray")
+	}
+	
+	//------------------------------------------------------
+	
+	$("p").each(function(i,e) {
+		console.log("---", i, "---")
+		console.log( e )	//JS DOM 객체
+		console.log($(e))   //jQuery DOM 객체
+		
+		console.log( this ) //JS DOM 객체
+		console.log( $(this) ) //jQuery DOM 객체
+		
+		// 코랩ㄱ함수에서 사용된 this 키워드는 콜백함수를 
+		
+	})
+	
+	//--------------------------------------------
+	
+	$("p").each(function() {
+		
+	})
+	
+})
+</script>
+
+</head>
+<body>
+
+<div>
+	<span>하나</span>
+	<p>둘</p>
+	<pre>셋</pre>
+	<p>넷</p>
+	<p>다섯</p>
+</div>
+
+</body>
+</html>

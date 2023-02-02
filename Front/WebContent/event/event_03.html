@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	//이벤트리스너 등록 - addEventListener
+	//이벤트리스너 해제 - removeEventListener
+	
+	//--------------------------------------------------------
+	
+	btnOk.addEventListener("click", function() {
+		alert("확인버튼 클릭됨")
+	})
+
+	//이벤트 리스너 해제되지 않음
+	btnOk.removeEventListener("click", function() {
+		alert("확인버튼 클릭됨")
+	})
+	
+	// 익명함수로 작성하면 코드내용이 같더라도
+	//같은 함수로 인식되지 않는다
+	
+	// 익명함수가 아닌 따로 정의된 함수를 사용해야
+	//이벤트 리스너 등록/해제가 연동된다
+	
+	//--------------------------------------------------------
+	
+	//#btnOk에 click이벤트 리스너 등록
+	btnOk.addEventListener("click", clicked)
+
+	//#btnTest에 click이벤트 리스너 등록
+	btnTest.addEventListener("click", function() {
+		
+		//#btnOk에 click이벤트 리스너 해제
+		btnOk.removeEventListener("click", clicked)
+	})
+
+	//--------------------------------------------------------
+	
+	//QUIZ.
+	//#btnTest에 마우스를 올리면 글자색을 빨강으로 변경
+	btnTest.addEventListener("mouseenter", changeColorRed)
+	
+	//#btnTest에서 마우스를 내리면 글자색을 검정으로 변경
+	btnTest.addEventListener("mouseleave", changeColorBlack)
+	
+	
+} //window.onload end
+
+function changeColorBlack() {
+// 	btnTest.style.color = "black"	//인라인 Style적용
+	btnTest.removeAttribute("class")//임베디드 Style적용
+}
+
+function changeColorRed() {
+// 	btnTest.style.color = "red"	//인라인 Style적용
+	btnTest.setAttribute("class", "colorRed")//임베디드 Style적용
+}
+
+
+function clicked() {
+	alert("확인버튼이 클릭되었습니다")
+}
+</script>
+
+<style type="text/css">
+.colorRed {
+	color: red;
+}
+</style>
+</head>
+<body>
+
+<button id="btnOk">확인 버튼</button>
+
+<button id="btnTest">테스트 버튼</button>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

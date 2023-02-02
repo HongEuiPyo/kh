@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+span {
+	/* 인라인요소에는 테두리를 적용하고 반드시 확인해봐야 한다 */
+	/* -> 자동줄바꿈에 의해서 테두리가 잘려나가기도 한다 */
+/* 	border: 1px solid red; */
+
+	background-color: #f99;
+	
+	/* 인라인 요소에는 width, height 적용되지 않는다 */
+	width: 100px;
+	height: 100px;
+	
+	/* 줄간격  (기본값 1.35em)*/
+	line-height: 2.5em;
+	
+	/* 글자크기 (기본값 16px) */
+	font-size: 30px;
+	
+	/* 내부여백 */
+	/* -> 배경을 포함한 내부 영역이 넓어짐 */
+	padding: 5px;
+	
+	/* 외부여백 */
+	/* -> 상하 마진이 없다 */
+	/* -> 좌우 마진이 넓어지면서 다른 요소와의 간격을 벌린다 */
+	margin: 30px;	
+}
+</style>
+
+</head>
+<body>
+
+<div>
+	<span>SPAN1</span>
+	<span>SPAN2</span>
+	<span>SPAN3SPAN3SPAN3 SPAN3SPAN3SPAN3SPAN3SPAN3</span>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+1631233741181	Rename package 'service.inpl'
+1631241551476	Move 'views' to 'emp'
+1631241552956	Move 'lib' to 'emp'
+1631245911892	Move 'views' to 'WEB-INF'
+1631245913467	Move 'lib' to 'WEB-INF'
+1631245918017	Move 'emp' to 'views'
+1631245920905	Move 'detail.jsp' to 'emp'
+1631245922420	Move 'list.jsp' to 'emp'
+1631251888409	Move folder

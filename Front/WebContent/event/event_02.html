@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+window.onload = function() {
+	console.log( btnOk )
+
+	//--------------------------------------------------------
+	
+	//이벤트 프로퍼티의 값으로 익명 함수를 대입하여 사용한다
+	//	-> 이벤트 리스너, Event Listener
+	//	-> 이벤트 처리 코드(함수)
+	//	-> 콜백함수로 정의됨
+	btnOk.onclick = function() {
+		alert("clicked")
+	}
+	
+	//--------------------------------------------------------
+	
+	//테스트 버튼
+	var btn = document.getElementById("btnTest")
+	
+	//키보드 이벤트
+	//	keydown, keypress, keyup
+	
+	btn.onkeydown = function() {
+		console.log("keydown")
+	}
+	
+	btn.onkeypress = function() {
+		console.log("keypress")
+	}
+	
+	btn.onkeyup = function() {
+		console.log("keyup")
+	}
+	
+	//--------------------------------------------------------
+	
+	//focus, 포커스
+	//	focus, blur
+	
+	inputTest.onfocus = function() {
+		btnOk.innerHTML = "<h1 style='color: red;'>FOCUS</h1>"
+	}
+	
+	inputTest.onblur = function() {
+		btnOk.innerHTML = "<h1 style='color: blue;'>BLUR</h1>"
+	}
+	
+}
+</script>
+
+</head>
+<body>
+
+<button id="btnOk">확인</button>
+
+<button id="btnTest">테스트</button>
+
+<input type="text" id="inputTest" />
+
+</body>
+</html>
+
+
+
+
+
+
+

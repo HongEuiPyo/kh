@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>ABC corp.</title>
+<style type="text/css">
+	.popup {
+		position: fixed;
+		left: 100px;
+		top: 100px;
+		border: 1px solid #ebebeb;
+		padding: 40px 60px;
+/* 		display: none; */
+	}
+</style>
+</head>
+<body>
+
+	<h1>ABC</h1>
+	<div class="popup">
+		<h2>반갑습니다.</h2>
+		<input type="checkbox" id="popup">
+		<label for="popup">하루 안보기</label>
+		<button class="close">닫기</button>
+	</div>
+	
+	<script>
+		var myPopup = document.querySelector('.popup'),
+			checkbox = document.querySelector('#popup'),
+			popupclose = document.querySelector('.close');
+		
+		//		쿠키 생성
+		function setCookie(name, value, day) {
+			var date = new Date();
+			date.setDate(date.getDate() + day);
+			
+			var mycookie = '';
+			
+			mycookie += name + '=' + value + ';'; 
+			mycookie += 'Expires' + date.toUTCString();
+			
+			document.cookie = mycookie;
+		}
+// 		setCookie('ABC.com' , 'Main' , 3);
+		
+		//		쿠키 삭제
+		function delCookie(name) {
+			var date = new Date();
+			
+			date.setDate(date.getDate() -1);
+			
+			var setCookie = '';
+			
+			setCookie += name + 'Main;';
+			setCookie += 'Expires' + date.toUTCString();
+			
+			document.cookie = setCookie;
+		}
+		
+		//		쿠키 확인
+		function checkCookie(name) {
+			var cookies = document.cookie.split(';');
+			console.log(cookies);
+			var visited = false;	//		방문 거짓
+			
+			for(var i in cookies) {
+				if(cookies[i].indexOf(name) > -1) {
+					visited = true;
+					console.log(visited);
+				}
+			}		
+			
+			if(visited) {
+				//		재방문
+				myPopup.style.display = 'none';
+			} else {
+				//		신규 방문				
+				myPopup.style.display = 'block';	
+			}
+		}
+		checkCookie('ABC.com');
+		
+		popupClose.addEventListner('click', function(){
+			//a.checked true false
+			if(checkbox.checked) {
+				//		팝업을 다시 안 보겠다. 팝업 닫고, 쿠키 생성.
+				setCookie('ABC.com' , 'Main' , 1);
+				myPopup.style.display = 'none';
+			} else {
+				//		팝업을 계속 본다. 팝업 닫고, 쿠키 제거.
+				myPopup.style.display = 'none';
+				delCookie('ABC.com');
+			}
+			
+		});
+		
+	</script>
+	
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
